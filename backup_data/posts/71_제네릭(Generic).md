@@ -1,0 +1,306 @@
+---
+title: "제네릭(Generic)"
+date: "2015-11-20T14:18:22+09:00"
+category: "프로그래밍/JAVA"
+tags: []
+original_url: "https://priv.tistory.com/71"
+tistory_id: 71
+---
+
+1\. 제네릭(Generic)
+
+[의미] 타입을 파라미터화해서 컴파일 시 구체적인 타입이 결정되도록 하는 것
+
+[장점]
+
+1\. 컴파일 시 강한 타입 체크를 할 수 있다.
+
+2\. 타입 변환(castring)을 제거한다.
+
+  
+
+
+<기존>
+    
+    
+    ```
+    List list = new ArrayList();
+    list.add("hello");
+    // 사용할 때마다 타입변환 필요
+    String str = (String) list.ger(0);
+    
+    ```
+    
+
+  
+
+
+  
+
+
+<제네릭 사용 예>
+    
+    
+    ```
+    List<String> list = new ArrayList();
+    list.add("hello");
+    // 타입변환 불필요
+    String str = list.ger(0);
+    
+    ```
+    
+
+  
+
+
+  
+
+
+2\. 제네릭 타입
+
+[의미] 타입을 파라미터화해서 컴파일 시 구체적인 타입이 결정되도록 하는 것
+
+자바에서 범용적으로 사용되는 클래스를 설계할 때, Object 타입을 사용할 수 있다. Object 타입은 모든 종류의 자바 객체를 저장할 수 있다는 장점이 있지만, 저장할 때와 읽어올 때 빈번한 타입 변환이 발생한다. 클래스나 인터페이스 선언 시 제네릭을 사용하면 반복적인 타입변환 작업을 하지 않을 수 있다.
+
+  
+
+
+<제네릭 클래스 기본 구조>
+    
+    
+    ```
+    public class Box<T> {
+    	private T t;
+    
+    	public T get() {
+    		return t;
+    	}
+    
+    	public void set(T t) {
+    		this.t = t;
+    	}
+    }
+    
+    ```
+    
+
+  
+
+
+  
+
+
+<컴파일 시 내부적 자동 재구성>
+    
+    
+    ```
+    Box<String>box = new Box<String>();
+    // T로 표기한 부분이 String으로 자동 치환
+    class Box<String> {
+    	private String t;
+    
+    	public String get() {
+    		return t;
+    	}
+    
+    	public void set(String t) {
+    		this.t = t;
+    	}
+    }
+    
+    ```
+    
+
+  
+
+
+* 반드시 <T>로 표기해야하는 것은 아니며 임의의 알파벳 <A>, <B>등 사용 가능하다.
+
+  
+
+
+3\. 멀티 타입 파라미터
+
+[의미] 두 개 이상의 제네릭 타입을 콤바로 구분하여 같이 사용하는 것
+
+<멀티 제네릭>
+    
+    
+    ```
+    class Prodict<T, M> {
+    	private T kind;
+    	private M model;
+    
+    	public T gerKind() {
+    		return this.kind;
+    	}
+    
+    	public M getModel() {
+    		return this.model;
+    	}
+    
+    	public void setKind(T kind) {
+    		this.kind = kind;
+    	}
+    
+    	public void setModel(M model) {
+    		this.model = model;
+    	}
+    }
+    
+    ```
+    
+
+  
+
+
+  
+
+    
+    
+    ```
+    Product<Tv, String> prouduct = new Product<Tv, String>();
+    
+    /* 자바 7부터 생략 가능 */
+    Product<Tv, String> product = new Product();
+    
+    ```
+    
+
+  
+
+
+  
+
+
+4\. 제네릭 메소드
+
+[의미] 매개 타입과 리턴 타입으로 타입 파라미터를 갖는 메소드
+
+<제네릭 메소드 형태>
+
+public <타입파라미터, ...> 리턴타입 메소드명(매개변수, ...){ ... }
+
+  
+
+
+<제네릭 메소드 사용예>
+    
+    
+    ```
+    class Box<L> {
+    
+    	L data;
+    
+    	void setData(L data) {
+    		this.data = data;
+    	}
+    
+    	L getData() {
+    		return data;
+    	}
+    }
+    
+    class Util {
+    	public static <T> Box<T> boxing(T t) {
+    		Box<T> box = new Box<T>();
+    		box.setData(t);
+    		return box;
+    	}
+    }
+    
+    class BoxingMethodExample {
+    	public static void main(String[] args) {
+    		// boxing()의 타입파라미터를 명시적으로Integer로 지정
+    		Box<Integer> box1 = Util.<Integer> boxing(100);
+    		int intValue = box1.getData();
+    
+    		/* 타입파라미터 생략 가능 */
+    		// boxing()의 타입파라미터 String으로 추정 
+    		Box<String> box2 = Util.boxing("홍길동");
+    		String strValue = box2.getData();
+    	}
+    }
+    ```
+    
+
+  
+
+
+5\. 제한된 타입 파라미터
+
+[의미] 제네릭 타입 파라미터에 사용할 수 있는 타입 종류에 제한을 거는 것
+
+사용법 : 타입 파라미터 뒤에 extends 키워드를 붙여 상위 타입을 명시
+
+  
+
+
+<제한된 타입 파라미터(bounded type parameter) 형태>
+
+public <Textends상위타입> 리턴타입 메소드(매개변수, ...){ ... }
+
+  
+
+
+※ 신용권, ‘이것이 자바다. Java 프로그래밍 정복’, 2015, p.654-669 참조
+
+  
+
+
+5\. 제네릭 메소드 셈플
+
+찾아보니 primitive 타입을 제너릭하는 방법이 없어 추가 한다. 
+    
+    
+    ```
+    class Box<L> {
+    
+    	L data;
+    
+    	void setData(L data) {
+    		this.data = data;
+    	}
+    
+    	L getData() {
+    		return data;
+    	}
+    }
+    
+    class Util {
+    
+    	// void method(int k) 형태
+    	static <K> void boxing(K k) {
+    		;
+    	}
+    
+    	// void method(int k, char h) 형태
+    	static <K, H> void boxing(K k, H h) {
+    		;
+    	}
+    
+    	// int method(int k) 형태
+    	static <K> K boxing2(K k) {
+    		return k;
+    	}
+    
+    	// int method(char h) 형태, <>안의 순서는 관계가 없다.
+    	static <K, H> K boxing3(H h) {
+    		K i = null;
+    		return i;
+    	}
+    
+    	// Box<Integer> method(int h) 형태
+    	static <H> Box<H> boxing4(H h) {
+    
+    		Box<H> box = new Box<H>();
+    		box.setData(h);
+    		return box;
+    	}
+    }
+    
+    ```
+    
+
+  
+

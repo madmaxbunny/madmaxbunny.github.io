@@ -1,0 +1,63 @@
+---
+title: "Windows 서비스 등록"
+date: "2023-10-05T01:25:02+09:00"
+category: "인프라"
+tags: ["Windows", "서비스", "등록"]
+original_url: "https://priv.tistory.com/126"
+tistory_id: 126
+---
+
+### 1\. prunsrv.exe 다운로드 (v1.3.4)
+
+<https://commons.apache.org/proper/commons-daemon/procrun.html>
+
+<https://dlcdn.apache.org//commons/daemon/binaries/windows/>
+
+### 2\. 설치
+
+* prunsrv.exe 이름을 Img2gw.exe로 변경해야 함
+
+이유1 : 서비스에서는 지정한 이름( Img2gw )로 표시되나 작업 관리자에서는 prunsrv로 표시되어 구분이 쉽지 않음
+
+이유2 : 서비스명과 동일하게 만들어 주지 않으면 오류가 발생하는 케이스가 있다고 함 
+
+( 정확한 원인인지 모르겠으나 실제로 이름을 변경 후 정상 동작 경험 함)
+    
+    
+    ```bash
+    .\Img2gw.exe //IS//Img2gw --Description="이미지 G/W 서버" --Jvm="D:\Dev\lib\JDK\openjdk-21\bin\server\jvm.dll" --StartMode=jvm --StopMode=jvm --JvmMs=512 --JvmMx=1024 --JvmOptions=-DSampleApp --Classpath="D:\Dev\Tools\commons-daemon-1.3.4-bin-windows\amd64\img2gw-0.0.1-SNAPSHOT.jar" --StartClass=org.springframework.boot.loader.JarLauncher --StopClass=org.springframework.boot.loader.JarLauncher --StartParams=start --StopParams=stop --LogLevel=Debug --LogPath=D:\Dev\Tools\commons-daemon-1.3.4-bin-windows\amd64\logs --StdOutput=auto --StdError=auto
+    ```
+    
+
+### 3\. 삭제
+    
+    
+    ```bash
+    .\Img2gw.exe //DS//Img2gw
+    ```
+    
+
+### 3\. SpringBoot 의 Main 수정
+
+* 미수정 시, 서비스 종료가 되지 않았음
+    
+    
+    ```java
+    public static void main(String[] args) {
+    
+    		String command = "start";
+    		if (args.length > 0) {
+    			command = args[args.length - 1];
+    		}
+    		switch (command) {
+    		case "start":
+    			SpringApplication.run(Img2gwApplication.class, args);
+    			break;
+    		case "stop":
+    			System.exit(0);
+    			break;
+    		default:
+    		}
+    }
+    ```
+    

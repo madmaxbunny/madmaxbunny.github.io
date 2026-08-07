@@ -1,0 +1,41 @@
+---
+title: "자주 사용하는 Windows 실행 명령어"
+date: "2024-06-15T10:43:25+09:00"
+category: "인프라"
+tags: []
+original_url: "https://priv.tistory.com/129"
+tistory_id: 129
+---
+
+ms-settings:  
+Windows 설정(신 제어판)  
+  
+ms-settings:windowsupdate  
+Windows 업데이트  
+  
+ms-settings:windowsupdate-history   
+Windows 업데이트 기록  
+  
+winver  
+Windows 정보(버전, 빌드)  
+  
+regedit  
+레지스트리 편집기  
+  
+mstsc  
+원격 데스크톱 연결  
+  
+perfmon  
+성능 모니터  
+  
+services.msc  
+서비스  
+  
+lusrmgr.msc  
+로컬 사용자 및 그룹  
+  
+control  
+모든 제어판 항목(= 구 제어판)  
+  
+inetmgr  
+IIS(인터넷 정보 서비스) 관리자

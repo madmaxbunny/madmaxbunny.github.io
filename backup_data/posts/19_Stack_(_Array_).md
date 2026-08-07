@@ -1,0 +1,83 @@
+---
+title: "Stack ( Array )"
+date: "2010-01-09T14:38:24+09:00"
+category: "프로그래밍/Data Structure"
+tags: ["array", "Stack"]
+original_url: "https://priv.tistory.com/19"
+tistory_id: 19
+---
+
+  
+#include <stdio.h>  
+#define STACKSIZE 100 // 스텍 사이즈
+
+void push(char*,int*,char); // 스텍에 데이터를 삽입한다.  
+char pop(char*,int*); // 가장 마지막에 삽입된 데이터를 리턴한다.  
+void printStack(char*,int*); // 현 스택의 내용을 출력한다.
+
+void main(void){  
+int pt = 0; // 스텍 포인터의 위치  
+char stack[STACKSIZE]; // 스텍으로 사용하기 위한 배열  
+push(stack,&pt,'2'); //push(스텍배열 index, 스텍 포인터, 데이터)  
+push(stack,&pt,'0');  
+push(stack,&pt,'0');  
+push(stack,&pt,'6');  
+push(stack,&pt,'5');  
+push(stack,&pt,'5');  
+push(stack,&pt,'5');  
+push(stack,&pt,'4');  
+printf("\n");  
+printStack(stack,&pt); // 스텍의 내용 출력  
+printf("------------\n");  
+  
+pop(stack,&pt); // pop(스텍배열 index, 스텍 포인터)  
+pop(stack,&pt);  
+pop(stack,&pt);  
+pop(stack,&pt);  
+pop(stack,&pt);  
+pop(stack,&pt);  
+pop(stack,&pt);  
+pop(stack,&pt);  
+printf("\n\n");  
+}
+
+char pop(char *stack, int *pt){  
+  
+int data;  
+if(*pt<=0){   
+printf("stack is empty\n");  
+return 0;  
+}  
+data = stack[--(*pt)];  
+printf("\npop[%c]!\n",data);  
+printStack(stack,pt);  
+return data;  
+}
+
+  
+void push(char *stack, int *pt, char data){
+
+if(*pt > STACKSIZE){ // [예외처리]스텍이 가득차면  
+printf("stack is full!\n"); // error 메세지  
+return;  
+}
+
+printf("push[%c]!\n",data);  
+stack[(*pt)++] = data;  
+}
+
+void printStack(char *stack, int *pt){ // 스텍에 쌓여 있는 데이타를 모두 출력  
+  
+int i;
+
+printf("stack = ");  
+if(*pt<=0){  
+printf("Empty!\n");  
+return;  
+}
+
+for(i=0;i<*pt;i++){  
+printf("[%c] ", stack[i]);  
+}  
+printf("\n");  
+}

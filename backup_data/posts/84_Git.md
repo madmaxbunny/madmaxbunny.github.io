@@ -1,0 +1,258 @@
+---
+title: "Git"
+date: "2020-04-17T12:14:18+09:00"
+category: "프로그래밍"
+tags: ["Git", "커맨드"]
+original_url: "https://priv.tistory.com/84"
+tistory_id: 84
+---
+
+## **1\. 설치**
+
+  * Git : <https://git-scm.com>
+    * 기본 콘솔에서 사용 가능
+    * Source tree : <https://www.sourcetreeapp.com>
+      * GUI 지원 툴. 사전에 Git 설치 필요
+      * Gitlab 사용 가능
+    * Gitdesktop : https://desktop.github.com
+      * 비교적 쉬움
+      * Gitlab 사용 불가능?
+    * Git 플러그인
+      * 이클립스 Egit : <https://marketplace.eclipse.org/content/egit-git-integration-eclipse>
+
+
+
+* * *
+
+## **2\. Git 요약**
+
+![](../images/img_84_01.png)
+
+### 
+
+## **3\. 명령어**
+
+1\. 초기화
+
+  * 사용자 조회
+    * git config --list
+  * 사용자 설정
+    * git config --global user.name "홍길동"
+    * git config --global user.email "lim@abc.com"
+  * 저장소 시작하는 2가지방법  
+
+    1. Local PC에서 시작 (1번으로 시작하는 경우는 많지 않음)
+       * mkdir dirName
+       * cd dirName
+       * git init
+       * ...
+       * git remote add origin https://github.com/주소
+       * git push -u origin master
+    2. 이미 만들어진 Remote Repository 다운로드
+       * git clone https://github.com/주소
+       * ...
+       * git push
+  * Private 레파지토리는 토큰을 만들어야 사용 가능 (2020.12.15 이후 부터 git ID/PW 사용 불가)
+    * <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+
+
+    
+    
+    ```javascript
+    $ git clone https://github.com/username/repo.git
+    Username: your_username
+    Password: your_token
+    ```
+    
+
+2\. 상태보기
+
+  * Staging 조회
+    * git status
+
+
+
+3\. 저장
+
+  * 파일 추가
+    * git add f1.txt (모든 파일 git add *)
+    * git status
+    * git commit
+    * add와 commit 동시 진행할 경우 : git commit -am "메시지"  
+(한 번이라도 add된 (tracked) 파일만 사용 가능)
+
+
+
+4\. 삭제
+
+  * untracked file 삭제 (Staging Area에 올라기지 않은 파일 삭제)
+    * git clean -f 
+    * git clean -fd
+    * git clean -fd --dry-run : 삭제하기 전 파일 미리 보기)
+  * tracked 파일을 제거하는 방법
+    * git rm --cached {FILE_NAME}
+    * git rm -r --cached {DIR_NAME}
+
+
+
+5\. 비교
+
+git diff
+
+\- working directrory 기준으로 비교한다. staging area에 올라간 파일이 있다면 staging area와 비교하고, staging area에 올라간 파일이 없다면 .git directory에 있는 파일과 비교한 결과를 보여준다.
+
+비교툴 설정하기
+
+1\. > git config --global -e
+
+2\. 아래 추가
+    
+    
+    ```shell
+    [diff]
+            tool = vscode
+    [difftool "vscode"]
+            cmd = code --wait --diff $LOCAL $REMOTE
+    ```
+    
+
+3\. Y 선택하면, 설정한 vscode
+    
+    
+    ```shell
+    $ git difftool
+    
+    Viewing (1/1): 'hello.txt'
+    Launch 'vscode' [Y/n]?
+    ```
+    
+
+툴에서 비교할 수 있다.
+
+  * 로그에서 출력되는 버전 간의 차이점을 출력하고 싶을 때
+    * git log -p
+  * 버전 간의 차이점을 비교할 때
+    * git diff '버전 id'..'버전 id2'
+  * git add하기 전과 add한 후의 파일 내용을 비교할 때
+    * git diff
+
+
+  * 원격 브랜치와 로컬 브랜치 비교
+    * git fetch (먼저 원격 저장소의 내용 가져온다.)
+    * git diff master origin/master
+
+
+
+6\. 복구
+
+  * 모든 변경 파일 되돌리기
+    * git reset --hard
+  * 특정 파일만 되돌리기
+    * git checkout -- src/hello.c
+
+
+
+6\. 기타
+
+  * git 작업 트리 보기
+    * git log --decorate --all --oneline --graph
+  * git bash에서 한글이 깨질 경우
+    * git config --global core.quotepath false
+
+
+  * git 계정/패스워드 초기화
+    * git config --system --unset credential.helper
+    * git config --global --unset credential.helper
+  * git 에서 RR를 LR로 덮어쓰기
+    * $ git fetch origin
+    * $ git reset --hard origin/master
+      * git pull은 git fetch와 git merge origin/master를 동시에 해주는 커멘드이다.
+  * 원격 저장소(RR)의 파일 내용 가져오기(merge는 별도로 해야함)
+    * git fetch
+  * 브랜치 조회
+    * git branch -a (로컬 & 원격 모두 조회)
+    * git branch -r (원격 브랜치만 조회)
+    * git remote -v : 원격 repository 주소 조회
+  * 브랜치 삭제
+    * git branch -d <branch이름>
+  * 브런치 복제
+    * git checkout -b rollback master
+    * git checkout -b <신규 branch 이름> <복제대상>
+  * 원격에서 삭제한 브런치 로컬에 적용하기
+    * git remote prune origin
+  * TAG로 이동하기
+    * git tag
+    * git checkout tags/v4.4.2 -b 4.4.2-branch
+
+
+
+* * *
+
+## **4\. Git branching Model**
+
+![](../images/img_84_02.png)
+
+* <https://gmlwjd9405.github.io/2018/05/11/types-of-git-branch.html>
+
+* <https://nvie.com/posts/a-successful-git-branching-model/>
+
+## **5\. 툴**
+
+[이클립스 플러그인]
+
+  * RR > LR : 프로젝트 우클릭 > Team > Fetch from Upstream 선택
+  * LR과 workspace 비교 :
+    * 1\. 프로젝트 우클릭 > Team > Compare With > Branch, Tag, or Reference... 선택
+    * 2\. FETCH_HEAD 선택 후 Compare 선택
+    * 3\. 이슈사항 체크 후 Pull
+  * workspace를 LR로 원복 : Replace With > HEAD Revision 선택
+
+
+
+## **6\. Git 학습 사이트**
+
+1\. (생황코딩)지옥에서 온 Git : <https://opentutorials.org/course/2708>
+
+2\. (원숭이)누구나 쉽게 이해할 수 있는 Git 입문 : <https://backlog.com/git-tutorial/kr/>
+
+3\. (Git Command 타이핑 웹 어플리케이션 : <https://learngitbranching.js.org/?locale=ko>
+
+## **7\. 트러블슈팅**
+
+1\. 중간에 commit을 삭제해야 하는 경우 발생
+
+> log4j2 라이브러리 교체 후 로그가 안보인다는 사실을 한참 후에 발견함
+
+처리방법 :
+
+1) git reset --soft <돌아갈 커밋>
+
+\- 특정 커밋 이전으로 소스코드를 롤백 시킨 후, 수정한 코드들은 워킹 디렉토리와 인덱스의 상태를 그대로 유지
+
+2) 문제 소스만 스테이징에서 제거하고 commit
+
+\- 이 경우, 기존 commit 이력을 날려버리는 문제점이 존재함
+
+## **8\. 오류 케이스**
+    
+    
+    ```javascript
+     git clone https://gitlab.~
+    Cloning into 'Repository Name'...
+    remote: The project you were looking for could not be found or you don't have permission to view it.
+    ```
+    
+
+방법 1)
+
+[자격 증명 관리자]에서 계정 확인 및 삭제 후 재등록
+
+실행> control /name Microsoft.CredentialManager
+
+![](../images/img_84_03.png)
+
+방법 2)
+
+SSH를 이용한 gitlab 이용. 로컬 git console에서 SSH 비밀키/공개키를 생성하고 gitlab 내 정보에 공개키를 등록해야 한다.
+
+단, 로컬 PC와 서버간 22포트가 열려있어야 함

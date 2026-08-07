@@ -1,0 +1,24 @@
+---
+title: "[PHP] 인코딩"
+date: "2014-01-03T09:45:59+09:00"
+category: "프로그래밍/Web"
+tags: []
+original_url: "https://priv.tistory.com/49"
+tistory_id: 49
+---
+
+mysql_query('SET NAMES UTF8');
+
+#### 1\. DB에 있는 데이터를 PHP에서 불러올 때, 자동 인코딩
+
+mysql_connect($mysql_server, $user, $password)와 mysql_select_db($home_database, $connect) 사이에 mysql_query('SET NAMES UTF8') 를 삽입
+
+#### 2\. 데이터 인코딩
+
+<? echo iconv("EUC-KR", "UTF-8", "택스트")?>
+
+**POST에서 응용  
+** <?  
+$text = $_POST['text'];   
+$text = iconv('EUC-KR','UTF-8',$text);   
+?>

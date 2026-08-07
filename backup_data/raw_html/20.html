@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="ko">
+
+                                                                <head>
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":346020,"name":"priv","title":"DEVLION","isDormancy":false,"nickName":"DEV LION","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://priv.tistory.com/20","DEFAULT_URL":"https://priv.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":20,"isAuthor":false,"categoryId":159764,"categoryLabel":"프로그래밍/Data Structure"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://priv.tistory.com",
+    tistoryUrl: "https://priv.tistory.com",
+    manageUrl: "https://priv.tistory.com/manage",
+    token: "S8AcwnKdrjkLYSOzXhC/kuBja2SaL5Ln/STs3IxGSkzUkyuWsxHyUC0j0M8LCtOV"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/plugin/BusinessLicenseInfo/style.css" rel="stylesheet" type="text/css"/>
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/plugin/TistoryProfileLayer/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/plugin/TistoryProfileLayer/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara-1.2.0.min.js"></script><meta name="referrer" content="always"/>
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338"/>
+<meta name="google-adsense-platform-domain" content="tistory.com"/>
+<meta name="google-adsense-account" content="ca-pub-2435022862981445"/>
+<meta name="description" content="#include #include #include #define STKSIZ 30 // 스텍 사이즈 #define ARYSIZ 30 // 문자열 배열 사이즈 #define INULL -100 // int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬 void inputData(int*); // 데이타 삽입 void itoo(int); // 치환된 연산자를 원래대로 출력해준다. void postfix(int*,int*); // postfix정렬 void pntAry(int*); // 배열의 내용을 출력한다. int oper(char); // int 배열에 넣기 위한 연산자 치환함수 int operOrder(int); // 연산자의 우선순위를 출력해 준다. float calculation(int *p.."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://priv.tistory.com/20"/>
+<meta property="og.article.author" content="DEV LION"/>
+<meta property="og:site_name" content="DEVLION"/>
+<meta property="og:title" content="Stack을 이용한 계산기"/>
+<meta name="by" content="DEV LION"/>
+<meta property="og:description" content="#include #include #include #define STKSIZ 30 // 스텍 사이즈 #define ARYSIZ 30 // 문자열 배열 사이즈 #define INULL -100 // int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬 void inputData(int*); // 데이타 삽입 void itoo(int); // 치환된 연산자를 원래대로 출력해준다. void postfix(int*,int*); // postfix정렬 void pntAry(int*); // 배열의 내용을 출력한다. int oper(char); // int 배열에 넣기 위한 연산자 치환함수 int operOrder(int); // 연산자의 우선순위를 출력해 준다. float calculation(int *p.."/>
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@TISTORY"/>
+<meta name="twitter:title" content="Stack을 이용한 계산기"/>
+<meta name="twitter:description" content="#include #include #include #define STKSIZ 30 // 스텍 사이즈 #define ARYSIZ 30 // 문자열 배열 사이즈 #define INULL -100 // int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬 void inputData(int*); // 데이타 삽입 void itoo(int); // 치환된 연산자를 원래대로 출력해준다. void postfix(int*,int*); // postfix정렬 void pntAry(int*); // 배열의 내용을 출력한다. int oper(char); // int 배열에 넣기 위한 연산자 치환함수 int operOrder(int); // 연산자의 우선순위를 출력해 준다. float calculation(int *p.."/>
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png"/>
+<meta content="https://priv.tistory.com/20" property="dg:plink" content="https://priv.tistory.com/20"/>
+<meta name="plink"/>
+<meta name="title" content="Stack을 이용한 계산기"/>
+<meta name="article:media_name" content="DEVLION"/>
+<meta property="article:mobile_url" content="https://priv.tistory.com/m/20"/>
+<meta property="article:pc_url" content="https://priv.tistory.com/20"/>
+<meta property="article:mobile_view_url" content="https://priv.tistory.com/m/20"/>
+<meta property="article:pc_view_url" content="https://priv.tistory.com/20"/>
+<meta property="article:talk_channel_view_url" content="https://priv.tistory.com/m/20"/>
+<meta property="article:pc_service_home" content="https://www.tistory.com"/>
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m"/>
+<meta property="article:txid" content="346020_20"/>
+<meta property="article:published_time" content="2010-01-09T14:50:26+09:00"/>
+<meta property="og:regDate" content="20100109025026"/>
+<meta property="article:modified_time" content="2010-01-09T14:53:59+09:00"/>
+<script type="module" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/pc/dist/index.js" defer=""></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/pc/dist/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/pc/dist/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico"/>
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg"/>
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png"/>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/www/style/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/style/content.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/pc/dist/index.css"/>
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/script/base.js"></script>
+<script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+                
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-586GVSR');</script>
+<!-- End Google Tag Manager -->
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>Stack을 이용한 계산기</title>
+	<link rel="alternate" type="application/rss+xml" title="DEVLION" href="https://priv.tistory.com/rss" />
+
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/346020/skin/style.css?_version_=1680488556">
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/346020/skin/images/font.css?_version_=1680488556">
+
+	<!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<!--<![endif]-->
+
+                
+                
+                <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/style/revenue.css"/>
+<link rel="canonical" href="https://priv.tistory.com/20"/>
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://priv.tistory.com/20","name":null},"url":"https://priv.tistory.com/20","headline":"Stack을 이용한 계산기","description":"#include #include #include #define STKSIZ 30 // 스텍 사이즈 #define ARYSIZ 30 // 문자열 배열 사이즈 #define INULL -100 // int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬 void inputData(int*); // 데이타 삽입 void itoo(int); // 치환된 연산자를 원래대로 출력해준다. void postfix(int*,int*); // postfix정렬 void pntAry(int*); // 배열의 내용을 출력한다. int oper(char); // int 배열에 넣기 위한 연산자 치환함수 int operOrder(int); // 연산자의 우선순위를 출력해 준다. float calculation(int *p..","author":{"@type":"Person","name":"DEV LION","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fimages%2FopenGraph%2Fopengraph.png","width":"800px","height":"800px"},"datePublished":"2010-01-09T14:50:26+09:00","dateModified":"2010-01-09T14:53:59+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/style/dialog.css"/>
+<link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/style/postBtn.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/style/tistory.css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/script/common.js"></script>
+
+                
+                </head>
+
+                                                <body id="tt-body-page">
+                
+                
+                
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-586GVSR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<div id="dkIndex">
+		<a href="#dkBody">본문 바로가기</a>
+		<a href="#dkGnb">메뉴 바로가기</a>
+	</div>
+
+	<div id="dkWrap" class="wrap_skin ">
+		<div id="dkHead" role="banner" class="area_head ">
+			<h1 class="screen_out">DEVLION</h1>
+			<div class="area_profile ">
+				<a class="link_profile" href="/"><img src="https://tistory1.daumcdn.net/tistory/346020/attach/6efdf1432c3445b0badce5961e0b5c61" width="50" height="50" class="img_profile" alt="프로필사진"></a>
+				<div class="info_profile">
+					<button type="button" class="btn_name">DEV LION
+						<span class="ico_skin ico_name"></span>
+					</button>
+					<ul class="list_name">
+						<li><a href="https://priv.tistory.com/manage/entry/post" class="link_name">글쓰기</a></li>
+						<li><a href="https://priv.tistory.com/manage" class="link_name">관리</a></li>
+						<li class="box_division"><a href="https://priv.tistory.com/tag" class="link_name">태그</a></li>
+						<li><a href="https://priv.tistory.com/guestbook" class="link_name">방명록</a></li>
+						<li><a href="https://priv.tistory.com/rss" class="link_name">RSS</a></li>
+					</ul>
+					<p class="txt_condition">DEVLION</p>
+				</div>
+			</div>
+
+			<button type="button" class="btn_menu">
+				<span class="ico_skin ico_menu">카테고리 메뉴열기</span>
+			</button>
+		</div>
+
+		<div class="dimmed_layer"></div>
+
+		<button type="button" class="btn_close">
+			<span class="ico_skin ico_close">닫기</span>
+		</button>
+
+		<div class="area_menu">
+			
+				<div class="area_search">
+					<button type="button" class="btn_search">
+						<span class="ico_skin ico_search">검색하기</span>
+					</button>
+					<form action="#" method="get" class="frm_search" onsubmit="try {
+    window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
+    document.getElementsByName('search')[0].value = '';
+    return false;
+} catch (e) {}">
+						<fieldset>
+							<legend class="screen_out">검색하기 폼</legend>
+							<label for="tfSearch" class="ico_skin lab_search">블로그 내 검색</label>
+							<input id="tfSearch" type="text" name="search" value="" class="tf_search">
+						</fieldset>
+					</form>
+				</div>
+			
+
+			<div role="navigation" class="area_navi">
+				<button type="button" class="btn_cate">CATEGORY <span class="ico_skin ico_cate"></span></button>
+
+				<div class="list_cate">
+					<ul class="tt_category"><li class=""><a href="/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(109)</span> </a>
+  <ul class="category_list"><li class=""><a href="/category/%EC%9D%BC%EC%83%81%EC%9D%B4%EC%95%BC%EA%B8%B0" class="link_item"> 일상이야기 <span class="c_cnt">(3)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%EC%9D%BC%EC%83%81%EC%9D%B4%EC%95%BC%EA%B8%B0/%EB%94%94%EC%9E%90%EC%9D%B8" class="link_sub_item"> 디자인 <span class="c_cnt">(3)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="link_item"> 프로그래밍 <span class="c_cnt">(84)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/C/C%2B%2B" class="link_sub_item"> C/C++ <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/JAVA" class="link_sub_item"> JAVA <span class="c_cnt">(19)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/DB" class="link_sub_item"> DB <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/VBA" class="link_sub_item"> VBA <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Web" class="link_sub_item"> Web <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Android" class="link_sub_item"> Android <span class="c_cnt">(12)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/System" class="link_sub_item"> System <span class="c_cnt">(9)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Data%20Structure" class="link_sub_item"> Data Structure <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" class="link_sub_item"> 네트워크 <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4" class="link_sub_item"> 디자인패턴 <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EA%B8%B0%ED%83%80" class="link_sub_item"> 기타 <span class="c_cnt">(5)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/%EC%9D%B8%ED%94%84%EB%9D%BC" class="link_item"> 인프라 <span class="c_cnt">(4)</span> </a></li>
+</ul>
+</li>
+</ul>
+
+
+					<ul class="menu_profile">
+						<li><a href="https://priv.tistory.com/guestbook">방명록</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr class="hide">
+
+		
+
+		<div id="dkContent" class="cont_skin" role="main">
+			<div id="cMain">
+
+				
+
+				
+
+				
+
+				            
+                
+	<div id="mArticle" class="article_skin">
+
+		
+
+		
+			<div class="skin_view">
+				<h2 id="dkBody" class="screen_out">티스토리 뷰</h2>
+				<div class="area_title">
+					<strong class="tit_category"><a href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Data%20Structure">프로그래밍/Data Structure</a></strong>
+					<h3 class="tit_post"><a href="/20">Stack을 이용한 계산기</a></h3>
+					<span class="txt_detail my_post">DEV LION
+						<span class="txt_bar"></span>2010. 1. 9. 14:50
+						
+					</span>
+				</div>
+				<div class="area_view">
+					<script onerror="changeAdsenseToNaverAd()" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9527582522912841" crossorigin="anonymous"></script>
+<!-- inventory -->
+<ins class="adsbygoogle" style="margin:50px 0; display:block;" data-ad-client="ca-pub-9527582522912841" data-ad-slot="3825649038" data-ad-format="auto" data-full-width-responsive="true" data-ad-type="inventory" data-ad-adfit-unit="DAN-nRFiQiN4avFYIKbk"></ins>
+
+<script id="adsense_script">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    if(window.observeAdsenseUnfilledState !== undefined){ observeAdsenseUnfilledState(); }
+</script>
+<div data-tistory-react-app="NaverAd"></div>
+
+            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="contents_style"><P><br />
+<SPAN style="FONT-SIZE: 10pt">#include &lt;stdio.h&gt;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">#include &lt;string.h&gt;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">#include &lt;stdlib.h&gt;</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">#define STKSIZ 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 스텍 사이즈</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">#define ARYSIZ 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 문자열 배열 사이즈</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">#define INULL -100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void inputData(int*);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 데이타 삽입</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void itoo(int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 치환된 연산자를 원래대로 출력해준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void postfix(int*,int*);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // postfix정렬</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void pntAry(int*);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 배열의 내용을 출력한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">int oper(char);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // int 배열에 넣기 위한 연산자 치환함수</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">int operOrder(int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 연산자의 우선순위를 출력해 준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">float calculation(int *ptfx);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // postfix로 정렬된 데이타들을&nbsp; 계산</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">float arithmetics(float,float,int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 두개의 데이터와 하나의 연산자를 받아 사친연산후 결과값 리턴</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">//스텍 관련</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void push(float*,int*,float);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 스텍에 데이터를 삽입한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">float pop(float*,int*);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 스텍에 데이터를 꺼낸다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">//초기화 함수들&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void rstChrAry(char*,int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // char배열을 NULL로 초기화 해준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void rstIntAry(int*,int);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // int배열을 INULL로 초기화 해준다.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">void main(void){</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int pt = 0, alPt = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 스텍 포인터의 위치 //pt = 0, algePt = alge[]포인터</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int alge[ARYSIZ];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 전체적인 수식이 들어가는 배열</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int ptfx[ARYSIZ];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // postfix 배열&nbsp;</SPAN><br />
+<br /><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //&nbsp; while(1){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rstIntAry(alge,ARYSIZ);&nbsp;&nbsp;&nbsp;&nbsp; // 수식이 들어갈 배열 리셋</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rstIntAry(ptfx,ARYSIZ);&nbsp;&nbsp;&nbsp;&nbsp; // postfix 정렬될 배열 리셋</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inputData(alge);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 수식 삽입</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; postfix(alge,ptfx);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //postfix</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("\n&lt;POSTFIX&gt;\n");</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pntAry(ptfx);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //postfix 내용 출력&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // postfix를 계산하여 결과값 출력</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("\n= %.3f\n",calculation(ptfx));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">void inputData(int *alge){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 수식을 삽입한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i=0, j=0, k=0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //str[i], temp[j], alge[k]</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char temp[ARYSIZ];</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char str[ARYSIZ];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 문자열을 받기 위한 배열</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scanf("%s",str);</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(1){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //문자열에 들어간 연속된 숫자들은 하나로 모아준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(str[i] &lt;='9' &amp;&amp; str[i] &gt;='0' &amp;&amp; NULL != str[i]){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // str[i]가 숫자라면 </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp[j++] = str[i++];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// temp스택에 넣어 쌓는다. </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// str[i]가 숫자가 아니라면(연산자라면)</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alge[k++] = (int)atoi(temp);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[연산자가 먼저 오지 않을테니깐] temp의 내용을 int로 바꾼뒤 alge[]에 저장</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alge[k++] = oper(str[i++]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 연산자치환해서 alge에 저장</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j=0;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rstChrAry(temp,ARYSIZ);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //스텍을 초기화 한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(NULL==str[i])break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alge[k] = INULL;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 다 마치면 alge[] 마지막 값에 널 입력</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">void postfix(int *alge, int *ptfx){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //식[], postfix[]</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i = 0, j = 0, k = 0, pt = 0, temp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float operStack[STKSIZ];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 연산자를 받기 위한 스텍 배열</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(INULL!=alge[i]){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 식을 끝까지 읽는다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(0&lt;=alge[i]){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 슷자라면 </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptfx[j++] = alge[i++];</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 연산자라면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp = alge[i++];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // temp에 연산자를 넣는다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //스텍에 데이타가 있고, 스텍에 있는것이 우선 순위가 같거나 높다면 pop</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if((pt!=0) &amp;&amp; (operOrder((int)operStack[pt-1]) &gt;= operOrder(temp))){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptfx[j++] = (int)pop(operStack,&amp;pt);</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptfx[j++] = alge[i++];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 다음 숫자를 저장한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(10==operOrder(temp)){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 만약 temp가 우선순위 연산자라면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptfx[j++] = temp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // temp를 postfix[]에 저장</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 우선 순위 연산자가 아니라면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push(operStack,&amp;pt,(float)temp);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // temp를 stack에 저장</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(0!=pt) ptfx[j++] = (int)pop(operStack,&amp;pt);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 스텍에 연산자가 남아있다면 pop;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">void pntAry(int *arge){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 배열의 내용을 출력한다.</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i=0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(INULL==arge[i]){printf("empty!");} //test</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(INULL!=arge[i]){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itoo(arge[i++]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 치환된 연산자를 원래대로 출력해준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void itoo(int i){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 치환된 연산자를 원래대로 출력해준다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch(i){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -10: printf("* "); break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -20: printf("/ "); break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -30: printf("+ "); break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -40: printf("- "); break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default: printf("%d ",i);</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">int oper(char opr){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //int 배열에 넣기 위한 연산자 치환함수</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // *,/,+,- 각각 -10,-20,-30,-40 으로 치환</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch(opr){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case '*': i = -10; break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case '/': i = -20; break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case '+': i = -30; break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case '-': i = -40; break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case NULL : i = -100; break;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return i;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">float pop(float *stack, int *pt){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float data;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(*pt&lt;=0){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("stack is empty\n");</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data = stack[--(*pt)];</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("\npop[%d]!\n",data);</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return data;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">void push(float *stack, int *pt, float data){</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(*pt &gt; STKSIZ){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // [예외처리]스텍이 가득차면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("stack is full!\n");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // error 메세지</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stack[(*pt)++] = data;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">// postfix 정렬된 수식을 계산하여 결과값을 리턴한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">float calculation(int *ptfx){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i = 0, pt=0;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float calStack[STKSIZ], a, b, c, result = 0;</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(INULL!=ptfx[i]){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(0&lt;=ptfx[i]){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //숫자라면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push(calStack, &amp;pt, (float)ptfx[i++]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //push</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }else{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //연산자라면</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a = pop(calStack, &amp;pt);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 스텍에 들어있는 </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b = pop(calStack, &amp;pt);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 수 2개를 pop해서</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c = arithmetics(a,b,ptfx[i++]); // 연산자에 맞는 사칙연산</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push(calStack, &amp;pt, c);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 결과값을 스텍에 push</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return calStack[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 최종 결과값은 stack 가장 하단에 남는다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">float arithmetics(float a, float b, int opr){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 사칙연산 </SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float result;</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch(opr){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //인트배열을 해석한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -10:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = b*a; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //*</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -20:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = b/a; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ///</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -30:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = b+a; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //+</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -40:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = b-a; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return result;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">int operOrder(int dt){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 우선순위 입력받은 연산자의 우선순위를 리턴한다.</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int opr;</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch(dt){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -10:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //*</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -20: opr = 10; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ///</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -30:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //+</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case -40: opr =&nbsp; 9; break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return opr; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">// char배열 리셋</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void rstChrAry(char *temp, int sz){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i = 0;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;sz;i++){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp[i] = NULL;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">// int배열 리셋</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">void rstIntAry(int *temp, int sz){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i = 0;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;sz;i++){</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp[i] = INULL;</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN><br />
+<SPAN style="FONT-SIZE: 10pt">}</SPAN></P>
+<P><SPAN style="FONT-SIZE: 10pt">&nbsp;</SPAN></P></div>
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adsense responsive">
+    <div class="revenue_unit_info">반응형</div>
+    <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async="async"></script>
+    <ins class="adsbygoogle" style="display: block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-2435022862981445" data-ad-format="auto"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+        <!-- System - END -->
+
+
+<div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//priv.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 20
+}</script>
+<div class="wrap_btn" id="reaction-20" data-tistory-react-app="Reaction"></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-entry-id="20" data-thumbnail-url="https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" data-title="Stack을 이용한 계산기" data-description="#include #include #include #define STKSIZ 30 // 스텍 사이즈 #define ARYSIZ 30 // 문자열 배열 사이즈 #define INULL -100 // int는 NULL을 0으로 인식하기에 Int용 NULL을 만듬 void inputData(int*); // 데이타 삽입 void itoo(int); // 치환된 연산자를 원래대로 출력해준다. void postfix(int*,int*); // postfix정렬 void pntAry(int*); // 배열의 내용을 출력한다. int oper(char); // int 배열에 넣기 위한 연산자 치환함수 int operOrder(int); // 연산자의 우선순위를 출력해 준다. float calculation(int *p.." data-profile-image="https://tistory1.daumcdn.net/tistory/346020/attach/6efdf1432c3445b0badce5961e0b5c61" data-profile-name="DEV LION" data-pc-url="https://priv.tistory.com/20" data-relative-pc-url="/20" data-blog-title="DEVLION"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="20" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="346020" data-url="https://priv.tistory.com/20" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭"><em class="txt_state"></em><strong class="txt_tool_id">DEVLION</strong><span class="img_common_tistory ico_check_type1"></span></button>  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+				</div>
+				<div class="area_etc">
+					
+						<dl class="list_tag">
+							<dt class="tit_tag">TAG</dt>
+							<dd class="desc_tag"><a href="/tag/Stack" rel="tag">Stack</a>, <a href="/tag/%EA%B3%84%EC%82%B0%EA%B8%B0" rel="tag">계산기</a></dd>
+						</dl>
+					
+				</div>
+
+
+				<div class="area_reply ">
+
+
+					<strong class="tit_reply">댓글
+						<button type="button" class="btn_reply" onclick="$.Area.Comment.changeStatus();">
+							<span id="commentCount20_0">0</span>
+							<span class="ico_skin ico_reply">댓글펼치기</span>
+						</button>
+					</strong>
+
+
+
+					<!-- 대체텍스트 댓글펼치기/댓글접기 변경 -->
+					<div data-tistory-react-app="Namecard"></div><div id="entry20Comment">
+						<button type="button" class="btn_replymore">이전 댓글 보기</button>
+						
+							<ul class="list_reply">
+								            
+
+            
+							</ul>
+						
+
+						     <form method="post" action="/comment/add/20" onsubmit="return false" style="margin: 0">
+         
+<fieldset class="fld_reply">
+	<legend class="screen_out">댓글쓰기 폼</legend>
+	<div class="reply_write ">
+		<label for="comment" class="lab_write screen_out">댓글</label>
+		<textarea id="comment" name="comment" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="1"></textarea>
+	</div>
+	<div class="reply_writer">
+		
+			
+				<div class="writer_info">
+					<span class="info_name ">
+						<span class="wrap_info">
+							<input type="text" name="name" id="name" class="inp_info" placeholder="이름" value="" tabindex="2">
+						</span>
+					</span>
+					<span class="info_pw ">
+						<span class="wrap_info">
+							<input type="password" name="password" id="password" class="inp_info" placeholder="비밀번호" tabindex="3">
+						</span>
+					</span>
+				</div>
+			
+			<div class="writer_check">
+				<span class="check_secret ">
+					<input type="checkbox" name="secret" id="secret" class="inp_secret" tabindex="4">
+					<label for="secret" class="lab_secret">
+						<span class="ico_skin ico_check"></span>비밀글
+					</label>
+				</span>
+
+			</div>
+
+		
+
+		<div class="writer_btn">
+			<button type="submit" class="btn_enter" onclick="addComment(this, 20); return false;" tabindex="5">입력</button>
+		</div>
+	</div>
+</fieldset>
+
+     </form>
+
+					</div>
+<script type="text/javascript">loadedComments[20]=true;
+findFragmentAndHighlight(20);</script>
+
+				</div>
+			</div>
+		
+	</div>
+
+                
+            
+
+				
+
+				
+
+
+				
+
+
+				<div id="mEtc" class="wrap_etc">
+					<div class="inner_aside">
+						            
+								<!-- 공지사항 -->
+								
+									<div class="box_aside">
+										<strong>공지사항</strong>
+										<ul class="list_board">
+											
+										</ul>
+									</div>
+								
+							
+								<!-- 최근에 올라온 글 -->
+								<div class="box_aside">
+									<strong>최근에 올라온 글</strong>
+									<ul class="list_board">
+										
+											<li><a href="/134" class="link_board">Intellij 자주 사용하는 설정</a></li>
+										
+											<li><a href="/132" class="link_board">AWS</a></li>
+										
+											<li><a href="/131" class="link_board">AWS</a></li>
+										
+											<li><a href="/130" class="link_board">Curl</a></li>
+										
+									</ul>
+								</div>
+							
+								<!-- 최근에 달린 댓글 -->
+								<div class="box_aside">
+									<strong>최근에 달린 댓글</strong>
+									<ul class="list_board">
+										
+											<li><a href="/123#comment13435809" class="link_board">좋은 내용 잘 보고 갑니다.</a></li>
+										
+											<li><a href="/61#comment11023882" class="link_board">진짜 완벽한 설명 비전공자도 이거 보고 1분만에 이해함⋯</a></li>
+										
+											<li><a href="/61#comment10605775" class="link_board">완벽한 설명이네용... 잘 읽고갑니다</a></li>
+										
+											<li><a href="/61#comment10562405" class="link_board">(i/2)-1 로 하면, i가 1인 경우, -1이 나오⋯</a></li>
+										
+									</ul>
+								</div>
+							
+								<!-- 방문자수 -->
+								<div class="box_aside lst">
+									<dl class="list_total">
+										<dt>Total</dt>
+										<dd>166,396</dd>
+									</dl>
+									<dl class="list_visitor">
+										<dt>Today</dt>
+										<dd>1</dd>
+									</dl>
+									<dl class="list_visitor">
+										<dt>Yesterday</dt>
+										<dd>1</dd>
+									</dl>
+								</div>
+							
+								<!-- 링크 -->
+								<div class="box_aside">
+									<strong>링크</strong>
+									<ul class="list_board">
+										
+									</ul>
+								</div>
+							
+								<!-- 태그 클라우드 -->
+								<div class="box_aside">
+									<strong>TAG</strong>
+									<ul class="list_tag">
+										
+											<li><a href="/tag/array" class="link_tag cloud3">array</a></li>
+										
+											<li><a href="/tag/docker" class="link_tag cloud5">docker</a></li>
+										
+											<li><a href="/tag/call%20back" class="link_tag cloud5">call back</a></li>
+										
+											<li><a href="/tag/%EA%B7%B8%EB%9D%BC%ED%8C%8C%EB%82%98" class="link_tag cloud5">그라파나</a></li>
+										
+											<li><a href="/tag/Independentsoft" class="link_tag cloud5">Independentsoft</a></li>
+										
+											<li><a href="/tag/code%20push" class="link_tag cloud5">code push</a></li>
+										
+											<li><a href="/tag/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C" class="link_tag cloud3">안드로이드</a></li>
+										
+											<li><a href="/tag/%EC%95%94%ED%98%B8" class="link_tag cloud3">암호</a></li>
+										
+											<li><a href="/tag/%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8" class="link_tag cloud3">링크드리스트</a></li>
+										
+											<li><a href="/tag/PoolingHttpClientConnectionManager" class="link_tag cloud5">PoolingHttpClientConnectionManager</a></li>
+										
+											<li><a href="/tag/springboot" class="link_tag cloud5">springboot</a></li>
+										
+											<li><a href="/tag/setDoInput" class="link_tag cloud5">setDoInput</a></li>
+										
+											<li><a href="/tag/LinkedList" class="link_tag cloud3">LinkedList</a></li>
+										
+											<li><a href="/tag/%EC%A0%95%EB%A0%AC" class="link_tag cloud3">정렬</a></li>
+										
+											<li><a href="/tag/elasticsearch" class="link_tag cloud5">elasticsearch</a></li>
+										
+											<li><a href="/tag/insertion" class="link_tag cloud3">insertion</a></li>
+										
+											<li><a href="/tag/%EC%8A%A4%EB%A8%B8%ED%95%91" class="link_tag cloud5">스머핑</a></li>
+										
+											<li><a href="/tag/Queue" class="link_tag cloud3">Queue</a></li>
+										
+											<li><a href="/tag/443" class="link_tag cloud5">443</a></li>
+										
+											<li><a href="/tag/%EA%B0%9C%EB%B0%9C%20%EC%84%A4%EC%A0%95" class="link_tag cloud5">개발 설정</a></li>
+										
+											<li><a href="/tag/Intellij%20%23%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4%20%23%EB%8B%A8%EC%B6%95%ED%82%A4" class="link_tag cloud5">Intellij #인텔리제이 #단축키</a></li>
+										
+											<li><a href="/tag/%EC%84%A0%20%EC%97%86%EC%9D%B4" class="link_tag cloud5">선 없이</a></li>
+										
+											<li><a href="/tag/sort" class="link_tag cloud3">sort</a></li>
+										
+											<li><a href="/tag/%EA%B3%BC%EA%B1%B0%20%EB%B2%84%EC%A0%84%20%EC%82%AC%EC%9A%A9" class="link_tag cloud5">과거 버전 사용</a></li>
+										
+											<li><a href="/tag/Gradle" class="link_tag cloud5">Gradle</a></li>
+										
+											<li><a href="/tag/%EB%B9%8C%EB%93%9C%20%EC%84%B8%ED%8C%85" class="link_tag cloud5">빌드 세팅</a></li>
+										
+											<li><a href="/tag/Stack" class="link_tag cloud1">Stack</a></li>
+										
+											<li><a href="/tag/Windows%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%93%B1%EB%A1%9D" class="link_tag cloud5">Windows 서비스 등록</a></li>
+										
+											<li><a href="/tag/react-native" class="link_tag cloud3">react-native</a></li>
+										
+											<li><a href="/tag/java" class="link_tag cloud3">java</a></li>
+										
+									</ul>
+									<a href="https://priv.tistory.com/tag" class="link_more">more</a>
+								</div>
+							
+								<!-- 달력 -->
+								<div class="box_aside">
+									<table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+  <caption class="cal_month"><a href="/archive/202607" title="1개월 앞의 달력을 보여줍니다.">«</a> &nbsp; <a href="/archive/202608" title="현재 달의 달력을 보여줍니다.">2026/08</a> &nbsp; <a href="/archive/202609" title="1개월 뒤의 달력을 보여줍니다.">»</a></caption>
+  <thead>
+    <tr>
+      <th class="cal_week2">일</th>
+      <th class="cal_week1">월</th>
+      <th class="cal_week1">화</th>
+      <th class="cal_week1">수</th>
+      <th class="cal_week1">목</th>
+      <th class="cal_week1">금</th>
+      <th class="cal_week1">토</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cal_week">
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day cal_day3">1</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">2</td>
+      <td class="cal_day cal_day3">3</td>
+      <td class="cal_day cal_day3">4</td>
+      <td class="cal_day cal_day3">5</td>
+      <td class="cal_day cal_day3">6</td>
+      <td class="cal_day cal_day4">7</td>
+      <td class="cal_day cal_day3">8</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">9</td>
+      <td class="cal_day cal_day3">10</td>
+      <td class="cal_day cal_day3">11</td>
+      <td class="cal_day cal_day3">12</td>
+      <td class="cal_day cal_day3">13</td>
+      <td class="cal_day cal_day3">14</td>
+      <td class="cal_day cal_day3">15</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">16</td>
+      <td class="cal_day cal_day3">17</td>
+      <td class="cal_day cal_day3">18</td>
+      <td class="cal_day cal_day3">19</td>
+      <td class="cal_day cal_day3">20</td>
+      <td class="cal_day cal_day3">21</td>
+      <td class="cal_day cal_day3">22</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">23</td>
+      <td class="cal_day cal_day3">24</td>
+      <td class="cal_day cal_day3">25</td>
+      <td class="cal_day cal_day3">26</td>
+      <td class="cal_day cal_day3">27</td>
+      <td class="cal_day cal_day3">28</td>
+      <td class="cal_day cal_day3">29</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">30</td>
+      <td class="cal_day cal_day3">31</td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+    </tr>
+  </tbody>
+</table>
+								</div>
+							
+								<!-- 글 보관함 -->
+								<div class="box_aside lst">
+									<strong>글 보관함</strong>
+									<ul class="list_keep">
+										
+									</ul>
+								</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkFoot" role="contentinfo" class="area_foot">
+			Blog is powered by
+			<em class="emph_t">Tistory</em> / Designed by
+			<em class="emph_t">Tistory</em>
+		</div>
+	</div>
+
+
+<script src="https://tistory1.daumcdn.net/tistory/346020/skin/images/script.js?_version_=1680488556"></script>
+<script>
+	(function($) {
+		$.Area.init();
+	})(jQuery);
+</script>
+
+<div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+</div>
+<div class="#menubar menu_toolbar "></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                        <!-- SyntaxHighlight - START -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/github.min.css" rel="stylesheet"/><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/delphi.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/r.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/ruby.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/scala.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/swift.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/typescript.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/vbnet.min.js" defer></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-e19254b7873e68a4c15b39f006bebb3bd8049783/static/script/common.js"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"346020-20","customProps":{"userId":"0","blogId":"346020","entryId":"20","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"20","entryTitle":"Stack을 이용한 계산기","entryType":"POST","categoryName":"프로그래밍/Data Structure","categoryId":"159764","serviceCategoryName":null,"serviceCategoryId":null,"author":"330480","authorNickname":"DEV LION","blogNmae":"DEVLION","image":"","plink":"/20","tags":["Stack","계산기"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null","thirdProvideAgree":null}</script>
+<script type="module" src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/index.js"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/polyfills-legacy.js" nomodule="true" defer="true"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/index-legacy.js" nomodule="true" defer="true"></script>
+
+                </body>
+
+</html>

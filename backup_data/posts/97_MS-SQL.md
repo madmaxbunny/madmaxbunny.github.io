@@ -1,0 +1,43 @@
+---
+title: "MS-SQL"
+date: "2021-02-10T16:26:47+09:00"
+category: "프로그래밍/DB"
+tags: ["db", "MS-SQL"]
+original_url: "https://priv.tistory.com/97"
+tistory_id: 97
+---
+
+생성
+    
+    
+    ```sql
+    CREATE TABLE 테이블명(
+    	컬럼명 데이터형식 UNIQUE 제약조건
+    )
+    
+    CREATE TABLE test(
+    	data1 VARCHAR(6) UNIQUE NOT NULL
+    )
+    
+    ```
+    
+
+CREATE TABLE 테이블명 (
+
+)
+
+백업
+
+1\. 테이블을 생성하면서 테이블의 데이타 복사   
+> select * into 생성될테이블명 from 원본테이블명   
+  
+2\. 테이블 구조만 복사하겠다면   
+> select * into 생성될테이블명 from 원본테이블명 where 1=2   
+  
+3\. 테이블이 이미 생성되어 있는경우 데이타만 복사   
+> insert into 카피될테이블명 select * from 원본테이블명
+
+  
+  
+  
+

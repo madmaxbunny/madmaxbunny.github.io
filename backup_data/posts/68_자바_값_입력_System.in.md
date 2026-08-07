@@ -1,0 +1,37 @@
+---
+title: "자바 값 입력 System.in"
+date: "2015-11-17T14:51:37+09:00"
+category: "프로그래밍/JAVA"
+tags: []
+original_url: "https://priv.tistory.com/68"
+tistory_id: 68
+---
+
+
+    ```
+    import java.util.Scanner;
+    
+    public class Str01 {
+    
+     public static void main(String[] args) {
+    
+      int i = 20, j = 10;
+      if (i == j) {
+       System.out.println("동일");
+      } else {
+       System.out.println("다름");
+      }
+    
+      System.out.println("이름을 입력하세요");
+      Scanner sc = new Scanner(System.in);
+      String s1 = sc.next();
+      System.out.println(s1 + "님 반가워요");
+      
+      sc.close(); // 닫아줘야 버퍼가 차지 않는다.
+     }
+    
+    }
+    
+    
+    ```
+    

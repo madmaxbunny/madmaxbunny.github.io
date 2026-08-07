@@ -1,0 +1,65 @@
+---
+title: "Reflection API"
+date: "2022-12-07T00:11:07+09:00"
+category: "프로그래밍/JAVA"
+tags: []
+original_url: "https://priv.tistory.com/123"
+tistory_id: 123
+---
+
+### **1\. Reflection**
+
+\- Class 타입의 객체를 통해 특정 클래스의 구조(필드, 메소드, 어노테이션 등)를 런타임에 분석할 수 있는 API
+
+\- JVM에서 실행하는 어플리케이션의 런타임 동작을 검사하거나 수정하는 기능이 필요한 프로그램에서 사용
+
+**단점)**
+
+1\. JVM 최적화 수행 불가
+
+2\. 보안 제한?
+
+3\. 불법적인 작업 (private 필드 및 메서드 액서스) 수행 가능 → 부작용 발생할 수 있다.
+
+<https://docs.oracle.com/javase/tutorial/reflect/>
+
+### **2\. Class 객체를 얻는 방법**
+    
+    
+    ```java
+    // 인스턴스를 얻을 수 없을 때 사용
+    Class a = HttpGet.class;
+    System.out.println(a.getName());
+    		
+    // 인스턴스를 통한 생성
+    HttpGet h = new HttpGet();
+    Class b = h.getClass();
+    
+    // 이름을 통한 생성. but ClassNotFoundException 처리 필요
+    Class c = Class.forName("test.HttpGet");
+    ```
+    
+
+### **3\. 특정 클래스 구조를 분석**
+    
+    
+    ```java
+    public class Home {
+    	public int a = 2;
+    	private String b = "Hello Home";
+    	public int windowCnt() {
+    		return 2;
+    	}
+    }
+    
+    // Home 클래스의 필드 가져오기
+    Class home = Home.class;
+    Arrays.stream(home.getDeclaredFields()).forEach(System.out::println);
+    ```
+    
+
+**결과 :**
+
+![](../images/img_123_01.png)
+
+* * *

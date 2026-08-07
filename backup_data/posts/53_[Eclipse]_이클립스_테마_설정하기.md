@@ -1,0 +1,29 @@
+---
+title: "[Eclipse] 이클립스 테마 설정하기"
+date: "2014-01-03T09:52:47+09:00"
+category: "프로그래밍/JAVA"
+tags: ["Eclipse color themes", "개발 설정", "이클립스 테마"]
+original_url: "https://priv.tistory.com/53"
+tistory_id: 53
+---
+
+_  
+_
+
+이클립스 테마를 본인의 취향에 따라 바꿀 수 있다.
+
+Eclipse Color Themes라는 녀석을 사용하면 되는데 이클립스에서 Help > Marketplace 에서 'eclipse color theme' 키워드로 검색하여 설치할 수 있다.
+
+이클립스 버젼에 따라 'Marketplace'메뉴가 없을 수 있다. 이 경우 Help > Install New Software 에서 
+
+http://eclipse-color-theme.github.com/update 를 추가해 설치하면 된다.
+
+_  
+_
+
+플러그인 설치 후 Window > Preferences > General > Appearance > Color Theme 에서 테마를 설정할 수 있다.
+
+  
+
+
+참고 :  _<http://eclipsecolorthemes.org/>_

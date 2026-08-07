@@ -1,0 +1,105 @@
+---
+title: "JAVA"
+date: "2020-10-26T22:26:12+09:00"
+category: "프로그래밍/JAVA"
+tags: []
+original_url: "https://priv.tistory.com/90"
+tistory_id: 90
+---
+
+**1\. openJDK 설치**
+
+<https://github.com/ojdkbuild/ojdkbuild>
+
+**2\. IntelliJ IDEA EAP(Early Access Program)설치**
+
+<https://www.jetbrains.com/ko-kr/resources/eap/>
+
+[ Early Access Programs (EAP) - JetBrains www.jetbrains.com ](https://www.jetbrains.com/ko-kr/resources/eap/)
+
+  * **getter/setter/생성자 자동완성 (Generate)**
+    * MacOS: Cmd + n
+    * Win/Linux: Alt + Insert
+  * **자동 정렬**
+    * MacOS: Cmd + Alt + L
+    * Win : Ctrl + Alt + L
+
+
+
+단축키 : [gmlwjd9405.github.io/2019/05/21/intellij-shortkey.html](https://gmlwjd9405.github.io/2019/05/21/intellij-shortkey.html)
+
+**3\. spring 시작**
+
+[https://start.spring.io](https://start.spring.io/)
+
+![](../images/img_90_01.png)
+
+**4\. Mybatis 추가**
+
+<dependency>  
+<groupId>org.mariadb.jdbc</groupId>  
+<artifactId>mariadb-java-client</artifactId>  
+</dependency>  
+<dependency>  
+<groupId>org.mybatis.spring.boot</groupId>  
+<artifactId>mybatis-spring-boot-starter</artifactId>  
+<version>2.1.1</version>  
+</dependency>
+
+**5\. DBeaver 설치**
+
+<https://dbeaver.io/download/>
+
+<https://daslyee.tistory.com/60>
+
+[ Download | DBeaver Community Download Tested and verified for MS Windows 7/8/10, Linux and Mac OS X. DBeaver requires Java 1.8 or higher. Windows and MacOS installers include OpenJDK 11 bundle. If you are on Mac OS X and you do NOT use PKG installer then you will need to setup Java. N dbeaver.io ](https://dbeaver.io/download/)
+
+**6\. MariaDB 설치**
+
+> sudo apt update && sudo apt-get -y upgrade
+
+> sudo apt-get install -y mariadb-server
+
+> sudo mysql
+
+> set password = password('YOUR PASSWORD');
+
+> flush privileges;
+
+> exit
+
+> mysql -u root -p
+
+> create database mydb;
+
+> create user 'ubuntu'@'192.168.25.%' identified by 'input_password'; // 192.168.25.X 대역 외부 접속 가능
+
+> grant all privileges on mydb.* to 'ubuntu'@'192.168.25.%' identified by 'input_password';
+
+> flush privileges;
+
+> select host, user from mysql.user;
+
+mariadb 포트 확인
+
+> SHOW GLOBAL VARIABLES LIKE 'PORT';
+
+mariadb 외부 접속
+
+1\. > cat /etc/mysql/my.cnf 에서 가장 하단에 
+
+!includedir /etc/mysql/mariadb.conf.d/ 
+
+경로 확인
+
+2\. > vim /etc/mysql/mariadb.conf.d/50-server.cnf
+
+bind-address = 127.0.0.1 을 0.0.0.0으로 변경
+
+> sudo service mysql restart
+
+IP확인
+
+> ip address (ip a)
+
+또는 > apt-get install net-tools 후 ifconfig

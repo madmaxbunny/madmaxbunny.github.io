@@ -1,0 +1,28 @@
+---
+title: "Mac"
+date: "2020-11-16T22:16:09+09:00"
+category: "프로그래밍/System"
+tags: []
+original_url: "https://priv.tistory.com/93"
+tistory_id: 93
+---
+
+  * 키 기호 의미  
+
+    * ⌥ : option
+    * ⌘ : command
+    * ⇧ : shift
+    * ^ : control
+  * Finder에서 Console 열기 설정 
+    1. Finder > 서비스 > 서비스 환경설정> (상단) 단축키 > (좌측)서비스 > 폴더에서 새로운 터미널 열기 : 단축키 설정 (예. ^⌥⌘O)
+    2. (좌측) 앱 단축키 > \+ 버튼 > 응용프로그램 : Finder 선택 > 키보드 단축키 입력 > 추가
+    3. Finder 에서 폴더 선택 후 단축키 입력 > console 열림
+  * FN키 항상 켜기 
+    * 시스템 환경설정 > 키보드 > [F1, F2 등의 키를 표준키로 사용] 체크
+  * 특수문자 입력 
+    * cmd + control + space
+  * 강제종료 
+    * ⌥ + ⌘ + esc
+    * 또는 화면 왼쪽 상단 모서리의 Apple() 메뉴에서 '강제 종료'를 선택
+
+

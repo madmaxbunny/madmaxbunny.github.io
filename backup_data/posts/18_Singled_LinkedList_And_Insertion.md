@@ -1,0 +1,250 @@
+---
+title: "Singled LinkedList And Insertion"
+date: "2010-01-09T14:34:45+09:00"
+category: "프로그래밍/Data Structure"
+tags: ["insertion", "LinkedList"]
+original_url: "https://priv.tistory.com/18"
+tistory_id: 18
+---
+
+//::단일링크드리스크와 인설션
+
+#include <stdio.h>  
+#include <stdlib.h>  
+#define NUMCNT 100 //한번에 입력받을 수 있는 숫자의 갯수
+
+typedef struct _NODE{  
+int data; // 데이터  
+struct _NODE *next; // 다음노드의 주소  
+}NODE;
+
+NODE* createNode(); //해드노드 만들기  
+NODE* insertNode(NODE*,int); //마지막노드뒤에 새노드 삽입, 새노드 주소 리턴  
+NODE* reversNode(NODE*); //반전(reverse)   
+void deleteNode(NODE*,int); //해당번째의 노드를 삭제한다.   
+void prntNode(NODE*); //모든노드 출력  
+void endList(NODE*); //리스트 종료 모든 노드 삭제  
+void inputSting(NODE*); //문자를 입력 받은뒤 그 수를 리턴받는다.  
+void swapAscendingList(NODE*); //저장된 리스트 오름차순으로 정렬  
+void insertionAscendingList(NODE*); //숫자를 입력받아 기존 리스트에 오른차순으로 하나씩 삽입
+
+  
+void main(){
+
+int num=10;  
+NODE *hd, *pt; // hd = 첫노드주소 pt = 마지막노드 주소  
+  
+printf("Program: LinkedList and Insertion\n\n");  
+  
+pt = hd = createNode(); //head노드 생성
+
+//문자열을 입력받아 리스트에 집어넣는다.  
+printf("InputString:");  
+inputSting(pt);   
+  
+/*  
+pt = insertNode(pt,2);
+
+pt = insertNode(pt,4);  
+pt = insertNode(pt,5);  
+pt = insertNode(pt,6);  
+pt = insertNode(pt,5);  
+pt = insertNode(pt,5);  
+pt = insertNode(pt,5);  
+pt = insertNode(pt,4);  
+*/  
+//노드 출력 s  
+prntNode(hd);  
+  
+//4번째 노드 삭제 후 출력  
+printf("\n\n<delete Node4>\n");  
+deleteNode(hd,4); //delete(hd,삭제노드순서)  
+  
+prntNode(hd);
+
+//리버스 후 출력  
+printf("\n\n<revers>\n");  
+  
+hd = reversNode(hd);  
+prntNode(hd); 
+
+//swap을 이용한 오름차순 정렬 TC= O(n!)  
+printf("\n\n<swapAscandingList>\n");   
+swapAscendingList(hd);  
+prntNode(hd);
+
+//숫자를 입력받아 기존 리스트에 오른차순으로 하나씩 삽입  
+printf("\n\nInsetionString:");  
+insertionAscendingList(hd);  
+prntNode(hd);
+
+//종료  
+endList(hd); //만들었던 모든 노드 삭제(free)  
+printf("\n");  
+  
+}
+
+void insertionAscendingList(NODE *pt){  
+  
+int cnt = 0; //charList[0]부터 시작  
+char charList[NUMCNT];  
+NODE *pt2, *hd = pt; // pt초기화를 위해 hd주소를 남겨둠
+
+scanf("%s",charList); // 문자열 입력  
+while(NULL!=charList[cnt]){ //한문자씩 검사  
+while(NULL!=pt->next){   
+if(pt->next->data <= (int)charList[cnt]-48){   
+pt = pt->next;  
+}else{  
+pt2=pt->next;  
+pt = insertNode(pt,(int)charList[cnt]-48);  
+pt->next = pt2;  
+cnt++;  
+break;  
+}  
+}  
+// 처음부터 head외에 어떤 노드도 없거나   
+// while문을 거쳐 마지막 노드까지 순환했다면  
+if(NULL == pt->next){  
+insertNode(pt,(int)charList[cnt]-48); //모조건 삽입  
+cnt++;  
+}  
+pt = hd; //다음 문자를 위해 pt를 head주소값으로 초기화  
+}  
+}
+
+void inputSting(NODE* pt){
+
+int cnt = 0; //charList[0]부터 시작  
+char charList[NUMCNT];
+
+scanf("%s",charList);  
+while(NULL!=charList[cnt]){  
+  
+pt = insertNode(pt,(int)charList[cnt]-48);  
+cnt++;  
+}  
+}  
+//
+
+//  
+void swapAscendingList(NODE* hd){  
+  
+int cnt=1 , swapCnt = 0; //swapCnt = 몇번 swap했는지 알려줌  
+NODE *pt, *pt2;  
+  
+if(NULL==hd->next) return; // 예외 처리(해드노드밖에 존재하지 않을경우)
+
+while(cnt!=0){ //더이상 swap이 발생하지 않으면 종료  
+pt = hd;  
+pt2 = hd->next;  
+  
+cnt = 0;  
+while(pt2->next != NULL){  
+if(pt->next->data > pt2->next->data){  
+pt->next = pt2->next;  
+pt2->next = pt->next->next;  
+pt->next->next = pt2;  
+pt = pt->next;  
+cnt++; //swap이 발생하면 증가  
+swapCnt++;  
+}else{  
+pt = pt->next;  
+pt2 = pt2->next;  
+}  
+}  
+}  
+printf("swapCnt: %d\n",swapCnt);  
+}
+
+NODE* createNode(){  
+  
+NODE *head = (NODE*)malloc(sizeof(NODE)); //리스트를 생성하기 위해 head노드 생성  
+head ->data = NULL;  
+head ->next = NULL;  
+  
+return head;  
+}
+
+NODE* insertNode(NODE* pt,int data){  
+  
+NODE *newNode = (NODE*)malloc(sizeof(NODE));  
+pt->next = newNode; // 새노드를 마지막 노드 뒤에 삽입한다.  
+newNode->next = NULL;  
+newNode->data = data;  
+  
+return newNode; // 생선한 노드의 주소값 리턴  
+}
+
+void deleteNode(NODE* hd, int cnt){  
+  
+int i;  
+NODE *delPt, *temp;  
+  
+for(i=1;i<cnt;i++){ // cnt만큼 노드순회후 삭제  
+if(NULL==hd->next){// (예외 처리)cnt만큼 노드순회후 더 이상 노드가 없을 경우  
+  
+printf("Not find node%d!\n",cnt);  
+return;  
+}  
+temp = hd;   
+hd = hd->next;  
+}
+
+if(NULL==hd->next){  
+//for문으로 cnt-1만큼 순회후 그 노드의 next를 삭제하는데  
+//cnt-1과 현재 생성된 노드의 수가 일치하게 되면 next값이 null인데도 불구하고   
+//아래 hd->next = hd->next->next; 구문을 실행하게 된다.   
+//그래서 NULL==hd->next도 예외처리 해야한다.  
+printf("Not find node%d!\n",cnt);  
+return;  
+}   
+delPt = hd->next;  
+hd->next = hd->next->next;  
+  
+free(delPt);  
+}
+
+void prntNode(NODE* hd){
+
+while(NULL != hd->next){ //노드의 next가 null이 될때까지 순회   
+printf("%d", hd->next->data);   
+hd = hd->next;   
+}
+
+}
+
+void endList(NODE* hd){  
+  
+if(NULL==hd->next){ //마지막 남은 해드노드 삭제 free();  
+free(hd);  
+return;  
+}  
+int cnt=0;  
+NODE *pt;  
+while(NULL != hd->next){ //노드의 next가 null이 될때까지 순회   
+  
+pt = hd;  
+hd = hd->next; //일단 hd를 옴겨 놓고   
+free(pt); //노드 삭제  
+}  
+}
+
+NODE* reversNode(NODE* hd){  
+  
+NODE *pt, *pt2; //리버스하기 위한 두개의 포인터노드 지정  
+  
+if(NULL==hd->next) return hd; // 예외 처리(해드노드밖에 존재하지 않을경우)  
+  
+pt2 = hd->next->next;  
+hd->next->next = NULL;  
+  
+while(pt2!=NULL){  
+pt = hd->next;  
+hd->next = pt2;  
+pt2 = pt2 ->next;  
+hd->next->next = pt;  
+}  
+  
+return hd;  
+}

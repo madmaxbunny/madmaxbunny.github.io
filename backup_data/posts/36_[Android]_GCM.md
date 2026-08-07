@@ -1,0 +1,161 @@
+---
+title: "[Android] GCM"
+date: "2014-01-03T09:02:13+09:00"
+category: "프로그래밍/Android"
+tags: []
+original_url: "https://priv.tistory.com/36"
+tistory_id: 36
+---
+
+
+    ```
+    gcm.jar package kr.priv.android_gcm; 
+      
+    import android.app.Activity; 
+    import android.os.Bundle; 
+    import android.util.Log; 
+      
+    import com.google.android.gcm.GCMRegistrar; 
+      
+    public class AT_main extends Activity { 
+      
+        @Override
+        public void onCreate(Bundle savedInstanceState) { 
+            super.onCreate(savedInstanceState); 
+            setContentView(R.layout.main); 
+            registGCM(); 
+        } 
+      
+        private void registGCM() { 
+            GCMRegistrar.checkDevice(this); 
+            GCMRegistrar.checkManifest(this); 
+      
+            final String regId = GCMRegistrar.getRegistrationId(this); 
+            Log.d("==============1", regId); 
+            if ("".equals(regId)) 
+                GCMRegistrar.register(this, GCMIntentService.SEND_ID); 
+            else
+                Log.d("==============", regId); 
+        } 
+      
+    }
+    
+    ```
+    
+
+자신의 스마트폰의 redId를 알려면 처음 애플리케이션을 실행했을 때 나오는 onRegistered를 확인해야 함 
+    
+    
+    ```
+    package kr.priv.android_gcm; 
+      
+    import java.util.Iterator; 
+      
+    import android.app.Notification; 
+    import android.app.PendingIntent; 
+    import android.content.Context; 
+    import android.content.Intent; 
+    import android.os.Bundle; 
+    import android.util.Log; 
+      
+    import com.google.android.gcm.GCMBaseIntentService; 
+      
+    public class GCMIntentService extends GCMBaseIntentService { 
+        private static final String tag = "GCMIntentService"; 
+        public static final String SEND_ID = "123456789101"; 
+      
+        public GCMIntentService() { 
+            this(SEND_ID); 
+        } 
+      
+        public GCMIntentService(String senderId) { 
+            super(senderId); 
+        } 
+      
+        @Override
+        protected void onMessage(Context context, Intent intent) { 
+            Bundle b = intent.getExtras(); 
+      
+            Iterator iterator = b.keySet().iterator(); 
+            while (iterator.hasNext()) { 
+                String key = iterator.next(); 
+                String value = b.get(key).toString(); 
+                Log.d(tag, "onMessage. " + key + " : " + value); 
+      
+            } 
+      
+            // Notification     } 
+      
+        @Override
+        protected void onError(Context context, String errorId) { 
+            Log.d(tag, "onError. errorId : " + errorId); 
+        } 
+      
+        @Override
+        protected void onRegistered(Context context, String regId) { 
+            Log.d(tag, "onRegistered. regId : " + regId); 
+        } 
+      
+        @Override
+        protected void onUnregistered(Context context, String regId) { 
+            Log.d(tag, "onUnregistered. regId : " + regId); 
+        } 
+      
+        @Override
+        protected boolean onRecoverableError(Context context, String errorId) { 
+            Log.d(tag, "onRecoverableError. errorId : " + errorId); 
+            return super.onRecoverableError(context, errorId); 
+        } 
+    }
+    
+    ```
+    
+    
+    
+    ```
+     
+      
+         
+      
+        
+         
+      
+         
+        
+         
+        
+         
+        
+         
+        
+         
+      
+         
+             
+                 
+                     
+      
+                     
+                 
+             
+      
+           
+             
+                 
+                     
+                     
+      
+                     
+                    
+                 
+             
+      
+            
+             
+            
+         
+      
+    
+    
+    ```
+    
