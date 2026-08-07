@@ -211,6 +211,10 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  - ".venv"
+  - "backup_data"
+  - "export_blog.py"
+  - "convert_to_chirpy.py"
 
 jekyll-archives:
   enabled: [categories, tags]
