@@ -10,3 +10,16 @@ body {
 code, pre {
   font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace !important;
 }
+
+/* Hide hashtag (#) anchor links at the end of section headings */
+a.anchor,
+h1 a.anchor,
+h2 a.anchor,
+h3 a.anchor,
+h4 a.anchor,
+h5 a.anchor,
+h6 a.anchor {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
