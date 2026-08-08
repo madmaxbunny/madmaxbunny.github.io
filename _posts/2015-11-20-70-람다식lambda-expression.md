@@ -42,32 +42,24 @@ tags: []
 
 2) 컬랙션 요소(대용량 데이터)를 필터링 또는 맵핑해서 쉽게 집계할 수 있다.
 
-  
-
 기존 제네릭 사용 예
-    
-    
-    ```
-    new Thread(new Runnable() {
-    @Override
-    public void run() {
-    System.out.println("Hello World.");
-    }
-    }).start();
-    
-    ```
-    
-    
-    
-    ```
-    new Thread(()->{
-    System.out.println("Hello World.");
-    }).start();
-    
-    ```
-    
 
-  
+```
+new Thread(new Runnable() {
+@Override
+public void run() {
+System.out.println("Hello World.");
+}
+}).start();
+
+```
+
+```
+new Thread(()->{
+System.out.println("Hello World.");
+}).start();
+
+```
 
 2\. 람다식 기본 문법
 
@@ -75,49 +67,33 @@ tags: []
 
 (Long val1, String val2) -> { val1 + val2.length(); }
 
-  
-
 1) int 매개 변수 a의 값을 콘솔에 출력하기 위해 다음과 람다식을 작성할 수 있다.
 
 (int a) -> {System.out.println(a); }
-
-  
 
 2) 매게 변수 타입은 런타임 시에 대입되는 값에 따라 자동인식 가능하다.
 
 (a) -> {System.out.println(a); }
 
-  
-
 3) 하나의 매개변수만 있다면 괄호 생략, 하나의 실행문만 있다면 중괄호 생략 가능하다.
 
 a -> System.out.println(a);
-
-  
 
 4) 매개 변수가 없다면 빈 괄호를 반드시 사용해야 한다.
 
 ()-> System.out.println(a);
 
-  
-
 5) 중괄호를 실행하고 결과값을 리턴해야 한다면 다음과 같이 사용 가능하다.
 
 (x, y) -> { return x + y; }
-
-  
 
 6) 중괄호에 return문만 있을 경우
 
 (x, y) -> { x + y }
 
-  
-
 3\. 타겟 타입과 함수적 인터페이스
 
 * 람다식은 인터페이스 변수에 대입된다. 인터페이스는 직접 객체화할 수 없기 때문에 구현 클래스가 필요한데, 람다식은 익명 구현 클래스를 생성하고 객체화한다. 람다식은 대입될 인터페이스의 종류에 따라 작성 방법이 달라 지기 때문에 람다식이 대입될 인터페이스를 _타겟타입(target type)_ 이라고 한다.
-
-  
 
 *** 함수적 인터페이스**
 
@@ -126,18 +102,16 @@ a -> System.out.println(a);
 함수적 인터페이스를 작성할 때 두 개 이상의 추상 메소드가 선언되지 않도록 컴파일러가 체킹해
 
 주는 기능이 있는데, 인터페이스 선언 시 @FunctionInterface 어노테티션을 붙이면 된다.
-    
-    
-    ```
-    
-    @FunctionInterface 어노테티션
-    public interface MyfunctionlInterface{
-    	public void method();
-    	public void otherMethod(); // 컴파일 오류
-    }
-    
-    ```
-    
+
+```
+
+@FunctionInterface 어노테티션
+public interface MyfunctionlInterface{
+public void method();
+public void otherMethod(); // 컴파일 오류
+}
+
+```
 
 이 인터페이스를 타겟 타입으로 갖는 람다식은 다음과 같은 형태로 작성 가능하다.
 
@@ -152,8 +126,6 @@ fi.method(5);
 3) 리턴값이 있는 람다식 : MyfunctionlInterface fi = (x, y) -> { return 값; }
 
 int result = fi.method(2, 5);
-
-  
 
 4\. 표준 API의 함수적 인터페이스
 
@@ -206,8 +178,6 @@ boolean test(T t);
 }
 
 // 리턴 타입 boolean
-
-  
 
 ※ 신용권, ‘ 이것이 자바다. Java 프로그래밍 정복’, 2015, p.678-716 참조
 

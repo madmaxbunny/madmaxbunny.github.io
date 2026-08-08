@@ -73,37 +73,31 @@ buildToolsVersion의 경우 자동으로 다운받지만 다운이 안되는 경
 ![](/assets/img/posts/img_94_07.png)(수정전) activity_main.xml ![](/assets/img/posts/img_94_08.png)(수정후) activity_main.xml
 
 2) build.gradle 에서 최신 문법을 사용하고 있어 오류가 발생한다.
-    
-    
-    ```html
-    Build file 'C:\Users\yorsi\AndroidStudioProjects\CatchCall\app\build.gradle' line: 33
-    
-    A problem occurred evaluating project ':app'.
-    > Could not find method implementation() for arguments [androidx.appcompat:appcompat:1.1.0] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
-    
-    ```
-    
+
+```html
+Build file 'C:\Users\yorsi\AndroidStudioProjects\CatchCall\app\build.gradle' line: 33
+
+A problem occurred evaluating project ':app'.
+> Could not find method implementation() for arguments [androidx.appcompat:appcompat:1.1.0] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+
+```
 
 아래와 같이 바꿔준다.
-    
-    
-    ```css
-        compile 'com.android.support:support-v4:25.+'
-        compile 'com.android.support:appcompat-v7:25.+'
-        compile 'com.android.support:design:25.+'
-    ```
-    
+
+```css
+compile 'com.android.support:support-v4:25.+'
+compile 'com.android.support:appcompat-v7:25.+'
+compile 'com.android.support:design:25.+'
+```
 
 ![](/assets/img/posts/img_94_09.png)
 
 3) 내 경우에는 @style/Theme.CatchCall를 참조하고 있어서 오류가 발생했다.
-    
-    
-    ```html
-    Execution failed for task ':app:processDebugResources'.
-    > com.android.ide.common.process.ProcessException: Failed to execute aapt
-    ```
-    
+
+```html
+Execution failed for task ':app:processDebugResources'.
+> com.android.ide.common.process.ProcessException: Failed to execute aapt
+```
 
 아래 불필요한 파일을 삭제해주고,
 
@@ -122,34 +116,31 @@ androidx 관련 라이브러리를 삭제하고, android.support 라이브러리
 MainActivity.java가 Activity가 아닌 AppCompatActivity를 상속해야 한다면, AndroidManifest.xml에 @style/AppTheme가 필요하므로 아래 2가지 파일이 필요할 수 있다.
 
 color.xml
-    
-    
-    ```html
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <color name="colorPrimary">#008577</color>
-        <color name="colorPrimaryDark">#00574B</color>
-        <color name="colorAccent">#D81B60</color>
-    </resources>
-    ```
-    
+
+```html
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="colorPrimary">#008577</color>
+<color name="colorPrimaryDark">#00574B</color>
+<color name="colorAccent">#D81B60</color>
+</resources>
+```
 
 style.xml
-    
-    
-    ```html
-    <resources>
-    
-        <!-- Base application theme. -->
-        <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-            <!-- Customize your theme here. -->
-            <item name="colorPrimary">@color/colorPrimary</item>
-            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-            <item name="colorAccent">@color/colorAccent</item>
-        </style>
-    
-    </resources>
-    ```
+
+```html
+<resources>
+
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+</style>
+
+</resources>
+```
 
 ---
 

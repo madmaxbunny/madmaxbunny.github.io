@@ -33,47 +33,45 @@ tags: []
 ## 핵심 설명 및 코드
 
 ```
-    private void getPreferences() { 
-            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
-            String a = pref.getString("key1", ""); 
-            Toast.makeText(this, a, 0).show(); 
-        } 
-      
-        // 값 저장하기 
-        private void savePreferences() { 
-            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
-            SharedPreferences.Editor editor = pref.edit(); 
-            editor.putString("key1", "data"); 
-            editor.commit(); 
-        } 
-      
-        // 값(Key Data) 삭제하기 
-        private void removePreferences() { 
-            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
-            SharedPreferences.Editor editor = pref.edit(); 
-            editor.remove("key1"); 
-            editor.commit(); 
-        } 
-      
-        // 값(ALL Data) 삭제하기 
-        private void removeAllPreferences() { 
-            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
-            SharedPreferences.Editor editor = pref.edit(); 
-            editor.clear(); 
-            editor.commit(); 
-        }
-    
-    ```
-    
+private void getPreferences() { 
+    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
+    String a = pref.getString("key1", ""); 
+    Toast.makeText(this, a, 0).show(); 
+} 
+
+// 값 저장하기 
+private void savePreferences() { 
+    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
+    SharedPreferences.Editor editor = pref.edit(); 
+    editor.putString("key1", "data"); 
+    editor.commit(); 
+} 
+
+// 값(Key Data) 삭제하기 
+private void removePreferences() { 
+    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
+    SharedPreferences.Editor editor = pref.edit(); 
+    editor.remove("key1"); 
+    editor.commit(); 
+} 
+
+// 값(ALL Data) 삭제하기 
+private void removeAllPreferences() { 
+    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE); 
+    SharedPreferences.Editor editor = pref.edit(); 
+    editor.clear(); 
+    editor.commit(); 
+}
+
+```
 
 Activity가 아닌 다른 class에서 사용하려면, context만 넘겨주면 된다 
-    
-    
-    ```
-    
-    SharedPreferences pref = mContext.getSharedPreferences("pref", MODE_PRIVATE);
-    
-    ```
+
+```
+
+SharedPreferences pref = mContext.getSharedPreferences("pref", MODE_PRIVATE);
+
+```
 
 ---
 

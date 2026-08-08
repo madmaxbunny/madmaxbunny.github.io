@@ -40,12 +40,10 @@ ELK와 같은 데이터 시각화 툴
 ## 1\. Prometheus
 
 Windows OS에서 Prometheus 실행 방법
-    
-    
-    ```bash
-    prometheus.exe --config.file=prometheus.yml --web.listen-address=:9090
-    ```
-    
+
+```bash
+prometheus.exe --config.file=prometheus.yml --web.listen-address=:9090
+```
 
 Prometheus 기본 설명
 

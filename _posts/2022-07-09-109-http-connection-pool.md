@@ -76,16 +76,14 @@ Http Connection pool 가이드 및 실무 적용 설명이에요.
 \- 위 3-1) 방식 만으로는 connection 재사용 불가 (계속 pool에 쌓이기만함..)
 
 \- 아래와 같은 추가 조치 필요
-    
-    
-    ```java
-    CookieStore cookieStore = new BasicCookieStore();
-    HttpClientContext httpContext = HttpClientContext.create();
-    httpContext.setCookieStore(cookieStore);
-    ...
-    response = httpClient.execute(httpPost, httpContext); // execute 함수에 HttpClientContext 반드시 추가
-    ```
-    
+
+```java
+CookieStore cookieStore = new BasicCookieStore();
+HttpClientContext httpContext = HttpClientContext.create();
+httpContext.setCookieStore(cookieStore);
+...
+response = httpClient.execute(httpPost, httpContext); // execute 함수에 HttpClientContext 반드시 추가
+```
 
 Test 버전 : httpclient-4.3.5.jar, httpclient-4.4.1.jar
 

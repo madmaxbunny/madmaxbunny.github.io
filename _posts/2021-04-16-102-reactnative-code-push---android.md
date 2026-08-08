@@ -63,31 +63,25 @@ MS에서 제공하는 리엑트 네이티브 앱 컨텐츠 배포 서비스.
 ### 2\. Appcenter SDK를 앱 내부에 삽입
 
 1) 프로젝트 폴더에서 아래 명령어 실행한다.
-    
-    
-    ```java
-    npm install appcenter appcenter-analytics appcenter-crashes --save-exact
-    ```
-    
+
+```java
+npm install appcenter appcenter-analytics appcenter-crashes --save-exact
+```
 
 2) android/app/src/main/assets 경로에 appcenter-config.json 만들고 app_secret 삽입 (<https://appcenter.ms> 에서 1 단계에 등록한 앱을 클릭하면 조회 가능)
-    
-    
-    ```html
-    {
-        "app_secret": "{APP_SECRET_VALUE}"
-    }
-    ```
-    
+
+```html
+{
+"app_secret": "{APP_SECRET_VALUE}"
+}
+```
 
 3) res/values/strings.xml 에 아래 2줄을 추가한다.
-    
-    
-    ```html
-    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
-    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
-    ```
-    
+
+```html
+<string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+<string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+```
 
 ※ 참조
 
@@ -98,90 +92,76 @@ MS에서 제공하는 리엑트 네이티브 앱 컨텐츠 배포 서비스.
 ### 3\. 배포 준비
 
 1) appcenter-cli 설치
-    
-    
-    ```html
-    npm install -g appcenter-cli
-    ```
-    
+
+```html
+npm install -g appcenter-cli
+```
 
 2) android/settings.gradle 하단에 아래 정보 삽입
-    
-    
-    ```java
-    // include ':app'
-    include ':app', ':react-native-code-push'
-    project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
-    
-    ```
-    
+
+```java
+// include ':app'
+include ':app', ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+
+```
 
 3) android/app/build.gradle 하단에 아래 정보 삽입
-    
-    
-    ```java
-    ...
-    // apply from: "../../node_modules/react-native/react.gradle"
-    apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
-    ...
-    ```
-    
+
+```java
+...
+// apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+...
+```
 
 앱 빌드 시 아래 오류 발생하면, 위 첫 줄은 주석 처리한다.
-    
-    
-    ```java
-    FAILURE: Build failed with an exception.
-    
-    * Where:
-    Script '/Users/khlim/Dev/react-native/codePushApp/node_modules/react-native/react.gradle' line: 132
-    
-    * What went wrong:
-    A problem occurred configuring project ':app'.
-    > Cannot add task 'bundleDebugJsAndAssets' as a task with that name already exists.
-    ```
-    
+
+```java
+FAILURE: Build failed with an exception.
+
+* Where:
+Script '/Users/khlim/Dev/react-native/codePushApp/node_modules/react-native/react.gradle' line: 132
+
+* What went wrong:
+A problem occurred configuring project ':app'.
+> Cannot add task 'bundleDebugJsAndAssets' as a task with that name already exists.
+```
 
 4) MainApplication.java 파일 에 getJSBundleFile 함수 오버라이딩
-    
-    
-    ```java
+
+```java
+...
+// 1. Import the plugin class.
+import com.microsoft.codepush.react.CodePush;
+public class MainApplication extends Application implements ReactApplication {
+private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     ...
-    // 1. Import the plugin class.
-    import com.microsoft.codepush.react.CodePush;
-    public class MainApplication extends Application implements ReactApplication {
-        private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-            ...
-    
-            @Override
-            protected String getJSBundleFile() {
-                return CodePush.getJSBundleFile();
-            }
-        };
+
+    @Override
+    protected String getJSBundleFile() {
+        return CodePush.getJSBundleFile();
     }
-    ```
-    
+};
+}
+```
 
 5) android/app/src/main/res/values/strings.xml 파일에 1. 단계에서 획득한 Deployment Key 추가
-    
-    
-    ```html
-    <string moduleConfig="true" name="CodePushDeploymentKey">{Deployment Key}</string>
-    ```
-    
+
+```html
+<string moduleConfig="true" name="CodePushDeploymentKey">{Deployment Key}</string>
+```
 
 **6) App.js 파일에 아래 코드 추가**
-    
-    
-    ```javascript
-    import codePush from 'react-native-code-push';
-    
-    const codePushOptions = {
-    	checkFrequency: codePush.CheckFrequency.ON_APP_RESUME
-    }
-    export default codePush(codePushOptions)(App)
-    ```
-    
+
+```javascript
+import codePush from 'react-native-code-push';
+
+const codePushOptions = {
+checkFrequency: codePush.CheckFrequency.ON_APP_RESUME
+}
+export default codePush(codePushOptions)(App)
+```
 
 ※ 블로그마다 js 코드 부분이 생략된 경우가 많았는데, 필자의 경우 js 코드가 입력되지 않으면
 
@@ -198,35 +178,29 @@ appcenter codepush 명령을 실행 시, <https://appcenter.ms>에 코드가 업
 ### 4\. 배포
 
 1) 프로젝트 폴더에서 아래 명령어 설치 및 실행
-    
-    
-    ```html
-    npm install --save react-native-code-push
-    
-    appcenter codepush release-react -a khlim/codePushTestApp -d Production
-    appcenter codepush release-react -a khlim/codePushTestApp -d Staging
-    ```
-    
+
+```html
+npm install --save react-native-code-push
+
+appcenter codepush release-react -a khlim/codePushTestApp -d Production
+appcenter codepush release-react -a khlim/codePushTestApp -d Staging
+```
 
 앱 종료 후 다시 실행해야 변화가 있었다. 
 
 ### 5\. 예외 케이스
-    
-    
-    ```html
-    The uploaded package was not released because it is identical to the contents of the specified deployment's current release.
-    ```
-    
+
+```html
+The uploaded package was not released because it is identical to the contents of the specified deployment's current release.
+```
 
 > 변경된 부분이 없으면 발생한다.
-    
-    
-    ```html
-    our target-binary-version "1.0" will be treated as "1.0.X".
-    
-    Error: {"message":"Failed to initialize file upload process."}
-    ```
-    
+
+```html
+our target-binary-version "1.0" will be treated as "1.0.X".
+
+Error: {"message":"Failed to initialize file upload process."}
+```
 
 > npm start로 동작시킨 서버가 종료되면 발생. 다시 실행하면 된다.
 

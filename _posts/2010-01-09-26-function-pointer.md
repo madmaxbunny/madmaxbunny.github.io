@@ -52,9 +52,8 @@ table['/'] = div;
 table['*'] = mul;  
 }
 
-  
 int main(int argc, char *argv[]){  
-  
+
 int inputA, inputB;  
 char operC;
 

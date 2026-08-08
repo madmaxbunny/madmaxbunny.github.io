@@ -33,14 +33,14 @@ tags: []
 ## 핵심 설명 및 코드
 
 ```
-    
-            Notification notification = new Notification(R.drawable.ic_launcher, getText(R.string.app_name), System.currentTimeMillis()); 
-            Intent notificationIntent = new Intent(this, AT_main.class); 
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0); 
-            notification.setLatestEventInfo(this, "test", "test2", pendingIntent); 
-            startForeground(12345, notification);
-    
-    ```
+
+    Notification notification = new Notification(R.drawable.ic_launcher, getText(R.string.app_name), System.currentTimeMillis()); 
+    Intent notificationIntent = new Intent(this, AT_main.class); 
+    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0); 
+    notification.setLatestEventInfo(this, "test", "test2", pendingIntent); 
+    startForeground(12345, notification);
+
+```
 
 ---
 

@@ -32,30 +32,30 @@ tags: []
 ## 핵심 설명 및 코드
 
 ```javascript
-    // 정의
-    this.state = {
-    	items : []
-    };
-    
-    // 변환
-    res.data.map((obj) => {
-    	var temp = {
-    		label : obj.displayName,
-    		value : obj.code
-    	}
-    
-    	this.setState({
-    		items : this.state.items.concat(temp)
-    	});
-    });
-    
-    // 구현
-    render(){ 
-    	return (
-    		items = {this.state.items}
-            ...
-    
-    ```
+// 정의
+this.state = {
+items : []
+};
+
+// 변환
+res.data.map((obj) => {
+var temp = {
+	label : obj.displayName,
+	value : obj.code
+}
+
+this.setState({
+	items : this.state.items.concat(temp)
+});
+});
+
+// 구현
+render(){ 
+return (
+	items = {this.state.items}
+    ...
+
+```
 
 ---
 

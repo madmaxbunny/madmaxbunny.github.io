@@ -37,8 +37,6 @@ tags:
 
 ![](/assets/img/posts/img_2_01.png)
 
-  
-  
 // Subject : Cryptography and Network Security  
 // Maker : Lim Kyung-Hyuk  
 // Date : 2009/03/05  
@@ -49,10 +47,10 @@ import java.io.*;
 public class lde{  
 public static void main(String[] ar) throws IOException{  
 BufferedReader in = new BufferedReader(new InputStreamReader(System.in));  
-  
+
 int a, b, c, d, q, r, a1, b1, c1;  
 int r1, r2, s, t, s1 = 1, s2 = 0, t1 = 0, t2 = 1, x, y, x0, y0, k = 0;  
-  
+
 System.out.println("Liner Diophantine Equation 'ax + by = c' ");  
 System.out.print("input a = ");  
 a = Integer.parseInt(in.readLine());  
@@ -121,7 +119,7 @@ k++;
 System.out.print("(" + x + ", " + y + "), ");  
 }  
 System.out.println("...");  
-  
+
 }  
 }
 

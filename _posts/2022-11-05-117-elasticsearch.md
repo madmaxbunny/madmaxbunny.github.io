@@ -36,213 +36,193 @@ ElasticSearch 가이드 및 실무 적용 설명이에요.
 ## 핵심 설명 및 코드
 
 ### **1\. 설치**
-    
-    
-    ```bash
-    docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.0
-    docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.0
-    ```
-    
+
+```bash
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+```
 
 * * *
 
 #### **버전확인**
-    
-    
-    ```bash
-    GET /
-    ```
-    
+
+```bash
+GET /
+```
 
 ### 
 
 ### **2\. CRUD**
-    
-    
-    ```bash
-    http://<호스트>:<포트>/<인덱스>/_doc/<도큐먼트 id>
-    ```
-    
+
+```bash
+http://<호스트>:<포트>/<인덱스>/_doc/<도큐먼트 id>
+```
 
 #### **1) 상태 확인**
-    
-    
-    ```bash
-    #index 조회
-    GET /_cat/indices?v 
-    
-    #상태확인
-    GET /_cat/health?v
-    ```
-    
+
+```bash
+#index 조회
+GET /_cat/indices?v 
+
+#상태확인
+GET /_cat/health?v
+```
 
 #### **2) 삽입**
-    
-    
-    ```bash
-    PUT /movie/_doc/1
-    
-    {
-        "msg" : "Hello Elasticsearch!"
-    }
-    ```
-    
+
+```bash
+PUT /movie/_doc/1
+
+{
+"msg" : "Hello Elasticsearch!"
+}
+```
 
 #### **3) 조회**
-    
-    
-    ```bash
-    # 단일검색
-    GET /movie/_doc/1
-    
-    # 모든 문서 검색
-    GET /movie/_search
-    
-    # 조건 검색
-    GET /movie/_search?q=hello
-    GET /movie/_search?q=hello OR hi
-    ```
-    
+
+```bash
+# 단일검색
+GET /movie/_doc/1
+
+# 모든 문서 검색
+GET /movie/_search
+
+# 조건 검색
+GET /movie/_search?q=hello
+GET /movie/_search?q=hello OR hi
+```
 
 #### **3) 삭제**
-    
-    
-    ```bash
-    #index 삭제
-    DELETE /movie
-    
-    #doc 삭제(_id). DELETE /INDEX/TYPE/_id
-    DELETE /movie/_doc/4
-    
-    #doc 삭제(쿼리). POST /INDEX/_delete_by_query
-    DELETE /movie/_delete_by_query
-    {
-    	"query" : {
-    		"match" : {
-    			"msg" : "hello"
-    		}
-    	}
-    }
-    ```
-    
+
+```bash
+#index 삭제
+DELETE /movie
+
+#doc 삭제(_id). DELETE /INDEX/TYPE/_id
+DELETE /movie/_doc/4
+
+#doc 삭제(쿼리). POST /INDEX/_delete_by_query
+DELETE /movie/_delete_by_query
+{
+"query" : {
+	"match" : {
+		"msg" : "hello"
+	}
+}
+}
+```
 
 * * *
 
 #### 3\. 집계 함수
 
 #### 1) group by
-    
-    
-    ```javascript
-    GET gw-heartbeat/_search
+
+```javascript
+GET gw-heartbeat/_search
+{
+  "size": 0,
+  "query": {
+"bool": {
+  "filter": [
     {
-      "size": 0,
-      "query": {
-        "bool": {
-          "filter": [
-            {
-              "range": {
-                "@timestamp": {
-                  "gt": "2023-01-19T00:00:00.000Z",
-                  "lt": "2023-01-20T00:00:00.000Z"
-                }
-              }
-            }
-          ]
-        }
-      },
-      "aggs": {
-        "count": {
-          "terms": {
-            "field": "url.domain",
-            "size" : 1000
-            
-          }
+      "range": {
+        "@timestamp": {
+          "gt": "2023-01-19T00:00:00.000Z",
+          "lt": "2023-01-20T00:00:00.000Z"
         }
       }
     }
-    ```
-    
+  ]
+}
+  },
+  "aggs": {
+"count": {
+  "terms": {
+    "field": "url.domain",
+    "size" : 1000
+
+  }
+}
+  }
+}
+```
 
 #### 2) group by (필드 2개 이상)
-    
-    
-    ```javascript
-    GET gw-heartbeat/_search
+
+```javascript
+GET gw-heartbeat/_search
+{
+  "size": 0,
+  "query": {
+"bool": {
+  "filter": [
     {
-      "size": 0,
-      "query": {
-        "bool": {
-          "filter": [
-            {
-              "range": {
-                "@timestamp": {
-                  "gt": "2023-01-19T00:00:00.000Z",
-                  "lt": "2023-01-20T00:00:00.000Z"
-                }
-              }
-            }
-          ]
-        }
-      },
-      "aggs": {
-        "myName": {
-          "multi_terms" : {
-            "terms" : [
-              {"field": "url.domain"},
-              {"field": "monitor.ip"}
-            ],
-            "size" : 1000
-          }
+      "range": {
+        "@timestamp": {
+          "gt": "2023-01-19T00:00:00.000Z",
+          "lt": "2023-01-20T00:00:00.000Z"
         }
       }
     }
-    ```
-    
+  ]
+}
+  },
+  "aggs": {
+"myName": {
+  "multi_terms" : {
+    "terms" : [
+      {"field": "url.domain"},
+      {"field": "monitor.ip"}
+    ],
+    "size" : 1000
+  }
+}
+  }
+}
+```
 
 4\. 예제
 
 AND 조건, Timezone
-    
-    
-    ```javascript
+
+```javascript
+{
+  "track_total_hits": true,
+  "query": {
+"bool": {
+  "filter": [
     {
-      "track_total_hits": true,
-      "query": {
-        "bool": {
-          "filter": [
-            {
-              "match": {
-                "tags": "GRHQ"
-              }
-            },
-            {
-              "match": {
-                "tags": "MO"
-              }
-            },
-            {
-              "range": {
-                "@timestamp": {
-                  "gte": "2023-05-01T00:00:00.000",
-                  "lte": "2023-05-25T00:00:00.000",
-                  "time_zone": "Asia/Seoul"
-                }
-              }
-            }
-          ]
-        }
-      },
-      "aggs": {
-        "avg": {
-          "avg": {
-            "field": "time_taken"
-          }
+      "match": {
+        "tags": "GRHQ"
+      }
+    },
+    {
+      "match": {
+        "tags": "MO"
+      }
+    },
+    {
+      "range": {
+        "@timestamp": {
+          "gte": "2023-05-01T00:00:00.000",
+          "lte": "2023-05-25T00:00:00.000",
+          "time_zone": "Asia/Seoul"
         }
       }
     }
-    ```
-    
+  ]
+}
+  },
+  "aggs": {
+"avg": {
+  "avg": {
+    "field": "time_taken"
+  }
+}
+  }
+}
+```
 
   * 전체 범위 검색을 하려면 "track_total_hits": true 작성해야 함
   * 불필요한 데이터가 많이 보일 때는 ?size=0 적용
@@ -251,45 +231,43 @@ AND 조건, Timezone
   * avg 추출 했더니, 결과에 count도 함께 나온다.
 
 OR 조건
-    
-    
-    ```javascript
-    GET gw-http-accesslog/_count
+
+```javascript
+GET gw-http-accesslog/_count
+{
+  "query": {
+"bool": {
+  "filter": [
     {
-      "query": {
-        "bool": {
-          "filter": [
-            {
-              "bool": {
-                "should": [
-                  {
-                    "match": {
-                      "tags": "GRHQ"
-                    }
-                  },
-                  {
-                    "match": {
-                      "tags": "MO"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "range": {
-                "@timestamp": {
-                  "gte": "2023-05-24T20:00:00.000",
-                  "lte": "2023-05-24T20:00:00.001",
-                  "time_zone": "Asia/Seoul"
-                }
-              }
+      "bool": {
+        "should": [
+          {
+            "match": {
+              "tags": "GRHQ"
             }
-          ]
+          },
+          {
+            "match": {
+              "tags": "MO"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "range": {
+        "@timestamp": {
+          "gte": "2023-05-24T20:00:00.000",
+          "lte": "2023-05-24T20:00:00.001",
+          "time_zone": "Asia/Seoul"
         }
       }
     }
-    ```
-    
+  ]
+}
+  }
+}
+```
 
 <https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/>
 

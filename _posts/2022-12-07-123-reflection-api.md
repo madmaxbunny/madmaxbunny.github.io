@@ -49,39 +49,35 @@ Reflection API 가이드 및 실무 적용 설명이에요.
 <https://docs.oracle.com/javase/tutorial/reflect/>
 
 ### **2\. Class 객체를 얻는 방법**
-    
-    
-    ```java
-    // 인스턴스를 얻을 수 없을 때 사용
-    Class a = HttpGet.class;
-    System.out.println(a.getName());
-    		
-    // 인스턴스를 통한 생성
-    HttpGet h = new HttpGet();
-    Class b = h.getClass();
-    
-    // 이름을 통한 생성. but ClassNotFoundException 처리 필요
-    Class c = Class.forName("test.HttpGet");
-    ```
-    
+
+```java
+// 인스턴스를 얻을 수 없을 때 사용
+Class a = HttpGet.class;
+System.out.println(a.getName());
+
+// 인스턴스를 통한 생성
+HttpGet h = new HttpGet();
+Class b = h.getClass();
+
+// 이름을 통한 생성. but ClassNotFoundException 처리 필요
+Class c = Class.forName("test.HttpGet");
+```
 
 ### **3\. 특정 클래스 구조를 분석**
-    
-    
-    ```java
-    public class Home {
-    	public int a = 2;
-    	private String b = "Hello Home";
-    	public int windowCnt() {
-    		return 2;
-    	}
-    }
-    
-    // Home 클래스의 필드 가져오기
-    Class home = Home.class;
-    Arrays.stream(home.getDeclaredFields()).forEach(System.out::println);
-    ```
-    
+
+```java
+public class Home {
+public int a = 2;
+private String b = "Hello Home";
+public int windowCnt() {
+	return 2;
+}
+}
+
+// Home 클래스의 필드 가져오기
+Class home = Home.class;
+Arrays.stream(home.getDeclaredFields()).forEach(System.out::println);
+```
 
 **결과 :**
 
