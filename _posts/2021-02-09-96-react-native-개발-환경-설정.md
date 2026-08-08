@@ -1,22 +1,36 @@
 ---
-title: "React-native 개발 환경 설정"
+title: React-native 개발 환경 설정
 date: 2021-02-09 23:51:53 +0900
-categories: ["프로그래밍"]
-tags: ["react-native"]
+categories:
+- 프로그래밍
+tags:
+- react-native
 ---
 
-> 💡 **TL;DR (핵심 요약)**  
-> React-native 개발 환경 설정에 대한 상세 설명 및 핵심 가이드입니다.
-
----
-
-## 1. 개요 및 배경
-
-React-native 개발 환경 설정 가이드 및 실무 적용 설명입니다.
+React-native 개발 환경 설정에 대한 정리 노트이에요. 참고하시는 데 도움되었으면 해요.
 
 ---
 
-## 2. 핵심 설정 및 실행 가이드
+## 개요 및 배경
+
+React-native 개발 환경 설정에 관해 실무와 개발 과정에서 알게 된 핵심 내용들을 공유해요.
+
+---
+
+## 핵심 설명 및 코드
+
+>  **TL;DR (핵심 요약)**  
+> React-native 개발 환경 설정에 대한 상세 설명 및 핵심 가이드이에요.
+
+---
+
+## 개요 및 배경
+
+React-native 개발 환경 설정 가이드 및 실무 적용 설명이에요.
+
+---
+
+## 핵심 설명 및 코드
 
 ## **1\. Mac**
 
@@ -59,8 +73,6 @@ React-native 개발 환경 설정 가이드 및 실무 적용 설명입니다.
 
   * Xcode > Preperences > Locations > Command Line Tools : Xcode 11.3.1 선택
   * AndroidStudio >
-
-
 
 ![](/assets/img/posts/img_96_01.png)
     
@@ -340,8 +352,6 @@ case 8.
 
   * AndroidStudio >
 
-
-
 ![](/assets/img/posts/img_96_02.png)
 
 필자는 AMD Ryzen 5 3600 프로세서라 [Android Emulator Hypervisor Driver for AMD Processors(Installer)를 설치했다. 인터넷에 해당 옵션 사용 위해서는 [Windows 기능]에 Hyper-V, Windows 하이퍼바이저 플랫폼을 설치해야한다는 글이 있던데.. 필자는 없이 설치 가능했다. 
@@ -375,8 +385,6 @@ case 8.
   * VM 에서는 안드로이드 애뮬레이터를 실행할 수 없었다.
   * react-native run-android 명령을 실행하면 애뮬레이터가 스스로 켜진 후 앱이 실행된다. 
 
-
-
 ### 2\. 오류
 
 #### case 1. PowerShell 또는 VS Code Terminal에서 명령어 실행 시 아래와 같은 매시지 발생.
@@ -399,16 +407,12 @@ case 8.
   1. PowerShell 관리자권한으로 실행
   2. > Set-ExecutionPolicy RemoteSigned
 
-
-
 ![](/assets/img/posts/img_96_03.png)
 
 설명 : 
 
   * (defalut) Restricted : ps1 스크립트 파일을 로드하여 실행할 수 없음
   * RemoteSigned : 신뢰된 배포자에 의해 서명된 원격 컴퓨터의 스크립트 파일 실행 가능
-
-
 
 ### case 2.
     
@@ -430,8 +434,6 @@ PATH 추가 : %ANDROID_HOME%\tools
 ## **3\. Ubuntu 20.04 (with VirtualBox)**
 
   * VirtualBox의 경우 Android 애뮬레이터가 동작하지 않아 실단말을 연결하여 테스트하였다.
-
-
 
 ### 1\. 개발 환경 설정
     
@@ -541,7 +543,13 @@ case 2.
 
 ---
 
-## 3. 요약 및 참고사항
+## 정리하며
 
 - 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
 - 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
+
+---
+
+## 정리하며
+
+관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.

@@ -1,22 +1,36 @@
 ---
-title: "[DB] Oracle Database Express Edition 11g 시작하기"
+title: '[DB] Oracle Database Express Edition 11g 시작하기'
 date: 2014-01-03 09:28:19 +0900
-categories: ["프로그래밍", "DB"]
+categories:
+- 프로그래밍
+- DB
 tags: []
 ---
 
-> 💡 **TL;DR (핵심 요약)**  
-> [DB] Oracle Database Express Edition 11g 시작하기에 대한 상세 설명 및 핵심 가이드입니다.
+[DB] Oracle Database Express Edition 11g 시작하기에 대한 정리 노트이에요. 참고하시는 데 도움되었으면 해요.
 
 ---
 
-## 1. 개요 및 배경
+## 개요 및 배경
 
-[DB] Oracle Database Express Edition 11g 시작하기 가이드 및 실무 적용 설명입니다.
+[DB] Oracle Database Express Edition 11g 시작하기에 관해 실무와 개발 과정에서 알게 된 핵심 내용들을 공유해요.
 
 ---
 
-## 2. 핵심 설정 및 실행 가이드
+## 핵심 설명 및 코드
+
+>  **TL;DR (핵심 요약)**  
+> [DB] Oracle Database Express Edition 11g 시작하기에 대한 상세 설명 및 핵심 가이드이에요.
+
+---
+
+## 개요 및 배경
+
+[DB] Oracle Database Express Edition 11g 시작하기 가이드 및 실무 적용 설명이에요.
+
+---
+
+## 핵심 설명 및 코드
 
 **1\. Oracle Database Express Edition 11g 설치**  
 \- [_http://www.oracle.com/technetwork/indexes/downloads/index.html_](http://www.oracle.com/technetwork/indexes/downloads/index.html) 에서 다운 가능하다.  
@@ -31,14 +45,12 @@ tags: []
   
 \- 만약 실행 시 아래와 같은 에러가 뜬다면, 메모리량이 부족하기 때문이다. 기본값은 2GB를 요구한다.  
 
-
 ![](/assets/img/posts/img_42_01.png)
 
   
 \- 오류를 수정하기 위해 .. \sqldeveloper-3.2.10.09.57_Win32\sqldeveloper\sqldeveloper\bin\sqldeveloper.conf 을 열고  
 하단 그림과 같이 'AddVMOption -Xmx256m' 문장을 추가하여 요구 메모리량을 256M로 수정한다.  
   
-
 
 ![](/assets/img/posts/img_42_02.png)
 
@@ -50,7 +62,6 @@ tags: []
 아래 그림과 같이 계정의 lock해제 및 페스워드를 변경한다.   
 \- 참고 [_http://blog.naver.com/190191?Redirect=Log &logNo=50086403055_](http://blog.naver.com/190191?Redirect=Log&logNo=50086403055)   
 
-
 ![](/assets/img/posts/img_42_03.png)
 
   
@@ -59,7 +70,6 @@ tags: []
 ** \- Oracle SQL Developer 실행시킨 후, 다음과 같이 작성할 수 있다. (비밀번호 : hr)  
 \- 모두 입력이 끝났다면, 테스트 버튼을 눌러, 이상이 없는지 확인한다.   
 (이상이 없다면 왼쪽 하단에 '성공' 메시지를 볼 수 있다.)  
-
 
 ![](/assets/img/posts/img_42_04.png)
 
@@ -70,13 +80,11 @@ tags: []
 \- 상단의 도구 > 환경설정을 클릭한다.  
 \- 글꼴 수정은 아래 그림과 같다.  
 
-
 ![](/assets/img/posts/img_42_05.png)
 
   
   
 \- 라인넘버 보이는 방법은 아래와 같다.  
-
 
 ![](/assets/img/posts/img_42_06.png)
 
@@ -85,7 +93,6 @@ tags: []
   
 \- 포멧터 위치  
 
-
 ![](/assets/img/posts/img_42_07.png)
 
   
@@ -93,7 +100,6 @@ tags: []
   
 \- 다른 이름으로 저장을 눌러 원하는 이름을 입력한다. 편집 버튼을 눌러 원하는 포멧을 설정한다. (편집기에서 Ctrl + F7을 누르면 설정한 포멧으로 적용된다.)  
   
-
 
 ![](/assets/img/posts/img_42_08.png)
 
@@ -116,7 +122,13 @@ PL/SQL 편집기에서 완성 자동 팝업 사용 체크 해제
 
 ---
 
-## 3. 요약 및 참고사항
+## 정리하며
 
 - 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
 - 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
+
+---
+
+## 정리하며
+
+관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.

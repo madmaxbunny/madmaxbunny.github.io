@@ -1,22 +1,37 @@
 ---
-title: "Gitlab Docker"
+title: Gitlab Docker
 date: 2023-10-20 01:01:53 +0900
-categories: ["인프라"]
-tags: ["gitlab", "nginx"]
+categories:
+- 인프라
+tags:
+- gitlab
+- nginx
 ---
 
-> 💡 **TL;DR (핵심 요약)**  
-> Gitlab Docker에 대한 상세 설명 및 핵심 가이드입니다.
-
----
-
-## 1. 개요 및 배경
-
-Gitlab Docker 가이드 및 실무 적용 설명입니다.
+Gitlab Docker에 대한 정리 노트이에요. 참고하시는 데 도움되었으면 해요.
 
 ---
 
-## 2. 핵심 설정 및 실행 가이드
+## 개요 및 배경
+
+Gitlab Docker에 관해 실무와 개발 과정에서 알게 된 핵심 내용들을 공유해요.
+
+---
+
+## 핵심 설명 및 코드
+
+>  **TL;DR (핵심 요약)**  
+> Gitlab Docker에 대한 상세 설명 및 핵심 가이드이에요.
+
+---
+
+## 개요 및 배경
+
+Gitlab Docker 가이드 및 실무 적용 설명이에요.
+
+---
+
+## 핵심 설명 및 코드
 
 ### 1\. 설치
 
@@ -111,7 +126,7 @@ SSL certificate problem: unable to get local issuer certificate
     
     ```bash
     > gitlab-rails console
-    > Notify.test_email('khlim@hyundai-autoever.com', 'GitLab 메일링 테스트입니다', 'GitLab SMTP를 수정하였기에 메일링 테스트를 진행합니다.').deliver_now
+    > Notify.test_email('khlim@hyundai-autoever.com', 'GitLab 메일링 테스트입니다', 'GitLab SMTP를 수정하였기에 메일링 테스트를 진행해요.').deliver_now
     ```
     
 
@@ -199,7 +214,13 @@ Nginx
 
 ---
 
-## 3. 요약 및 참고사항
+## 정리하며
 
 - 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
 - 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
+
+---
+
+## 정리하며
+
+관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
