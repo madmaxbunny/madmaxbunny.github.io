@@ -11,15 +11,21 @@ code, pre {
   font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace !important;
 }
 
-/* Hide hashtag (#) anchor links at the end of section headings */
+/* Hide hashtag (#) anchor links and icons across all headings and posts */
 a.anchor,
-h1 a.anchor,
-h2 a.anchor,
-h3 a.anchor,
-h4 a.anchor,
-h5 a.anchor,
-h6 a.anchor {
+.anchor,
+.fa-hashtag,
+.fas.fa-hashtag,
+i.fa-hashtag,
+h1 .anchor,
+h2 .anchor,
+h3 .anchor,
+h4 .anchor,
+h5 .anchor,
+h6 .anchor {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
 }
