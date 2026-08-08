@@ -1,22 +1,38 @@
 ---
-title: "React-native 개발 환경 설정"
+title: React-native 개발 환경 설정
 date: 2021-02-09 23:51:53 +0900
-categories: ["프로그래밍"]
+categories:
+- 프로그래밍
 tags: []
 ---
-
 > **[핵심 요약]**
-> React-native 개발 환경 설정 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+> React-native 개발 환경 설정의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
 
 ---
 
 ## 1. 개요 및 배경
 
-React-native 개발 환경 설정과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+React-native 개발 환경 설정은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
 
 ---
 
 ## 2. 핵심 설명 및 코드
+
+> React-native 개발 환경 설정의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+
+---
+
+React-native 개발 환경 설정은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+
+---
+
+> React-native 개발 환경 설정 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+
+---
+
+React-native 개발 환경 설정과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+
+---
 
 ## **1\. Mac**
 
@@ -156,7 +172,7 @@ info Launching iPhone 12 (iOS 14.4)
 info Building (using "xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F")
 error Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening secondApp.xcodeproj.
 Command line invocation:
-    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F
+/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F
 ```
     
 
@@ -218,18 +234,18 @@ npm start
 
 /Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/node_modules/@react-native-community/cli/build/index.js:178
   const cmd = _commander().default.command(command.name).action(async function handleAction(...args) {
-                                                                ^^^^^
+                                                        ^^^^^
 SyntaxError: missing ) after argument list
-    at createScript (vm.js:56:10)
-    at Object.runInThisContext (vm.js:97:10)
-    at Module._compile (module.js:542:28)
-    at Object.Module._extensions..js (module.js:579:10)
-    at Module.load (module.js:487:32)
-    at tryModuleLoad (module.js:446:12)
-    at Function.Module._load (module.js:438:3)
-    at Module.require (module.js:497:17)
-    at require (internal/module.js:20:19)
-    at Object.<anonymous> (/Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/cli.js:13:11)
+at createScript (vm.js:56:10)
+at Object.runInThisContext (vm.js:97:10)
+at Module._compile (module.js:542:28)
+at Object.Module._extensions..js (module.js:579:10)
+at Module.load (module.js:487:32)
+at tryModuleLoad (module.js:446:12)
+at Function.Module._load (module.js:438:3)
+at Module.require (module.js:497:17)
+at require (internal/module.js:20:19)
+at Object.<anonymous> (/Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/cli.js:13:11)
 
 npm ERR! Darwin 20.2.0
 npm ERR! argv "/Users/autoever/.nvm/versions/node/v6.10.1/bin/node" "/Users/autoever/.nvm/versions/node/v6.10.1/bin/npm" "start"
@@ -383,8 +399,8 @@ react-native : 이 시스템에서 스크립트를 실행할 수 없으므로 C:
 위치 줄:1 문자:1
 + react-native
 + ~~~~~~~~~~~~
-    + CategoryInfo          : 보안 오류: (:) [], PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess
++ CategoryInfo          : 보안 오류: (:) [], PSSecurityException
++ FullyQualifiedErrorId : UnauthorizedAccess
 ```
     
 
@@ -529,5 +545,12 @@ java uses or overrides a deprecated API.​
 
 ---
 
+---
+
+이상으로 React-native 개발 환경 설정의 기초 개념과 실행 방법에 대한 공유를 마칩니다.
+
+---
+
 ## 3. 정리하며
 
+이상으로 React-native 개발 환경 설정의 기초 개념과 실행 방법에 대한 공유를 마칩니다.

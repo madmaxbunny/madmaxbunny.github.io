@@ -1,22 +1,39 @@
 ---
-title: "Android Studio 과거 개발 환경으로 세팅하기"
+title: Android Studio 과거 개발 환경으로 세팅하기
 date: 2020-11-23 02:00:45 +0900
-categories: ["프로그래밍", "Android"]
+categories:
+- 프로그래밍
+- Android
 tags: []
 ---
-
 > **[핵심 요약]**
-> Android Studio 과거 개발 환경으로 세팅하기 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+> Android Studio 과거 개발 환경으로 세팅하기의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
 
 ---
 
 ## 1. 개요 및 배경
 
-Android Studio 과거 개발 환경으로 세팅하기과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+Android Studio 과거 개발 환경으로 세팅하기은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
 
 ---
 
 ## 2. 핵심 설명 및 코드
+
+> Android Studio 과거 개발 환경으로 세팅하기의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+
+---
+
+Android Studio 과거 개발 환경으로 세팅하기은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+
+---
+
+> Android Studio 과거 개발 환경으로 세팅하기 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+
+---
+
+Android Studio 과거 개발 환경으로 세팅하기과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+
+---
 
 Android Studio 4.1.1 기준 Minimum SDK를 16미만으로 선택할 수 없었다.
 
@@ -70,9 +87,9 @@ A problem occurred evaluating project ':app'.
     
     
 ```css
-    compile 'com.android.support:support-v4:25.+'
-    compile 'com.android.support:appcompat-v7:25.+'
-    compile 'com.android.support:design:25.+'
+compile 'com.android.support:support-v4:25.+'
+compile 'com.android.support:appcompat-v7:25.+'
+compile 'com.android.support:design:25.+'
 ```
     
 
@@ -109,9 +126,9 @@ color.xml
 ```html
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+<color name="colorPrimary">#008577</color>
+<color name="colorPrimaryDark">#00574B</color>
+<color name="colorAccent">#D81B60</color>
 </resources>
 ```
     
@@ -122,18 +139,25 @@ style.xml
 ```html
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+<!-- Customize your theme here. -->
+<item name="colorPrimary">@color/colorPrimary</item>
+<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+<item name="colorAccent">@color/colorAccent</item>
+</style>
 
 </resources>
 ```
 
 ---
 
+---
+
+이상으로 Android Studio 과거 개발 환경으로 세팅하기의 기초 개념과 실행 방법에 대한 공유를 마칩니다.
+
+---
+
 ## 3. 정리하며
 
+이상으로 Android Studio 과거 개발 환경으로 세팅하기의 기초 개념과 실행 방법에 대한 공유를 마칩니다.

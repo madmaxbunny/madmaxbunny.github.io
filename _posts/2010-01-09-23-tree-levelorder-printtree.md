@@ -1,22 +1,39 @@
 ---
-title: "Tree ( levelOrder, printTree )"
+title: Tree ( levelOrder, printTree )
 date: 2010-01-09 15:47:34 +0900
-categories: ["프로그래밍", "Data Structure"]
+categories:
+- 프로그래밍
+- Data Structure
 tags: []
 ---
-
 > **[핵심 요약]**
-> Tree ( levelOrder, printTree ) 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+> Tree ( levelOrder, printTree )의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
 
 ---
 
 ## 1. 개요 및 배경
 
-Tree ( levelOrder, printTree )과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+Tree ( levelOrder, printTree )은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
 
 ---
 
 ## 2. 핵심 설명 및 코드
+
+> Tree ( levelOrder, printTree )의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+
+---
+
+Tree ( levelOrder, printTree )은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+
+---
+
+> Tree ( levelOrder, printTree ) 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+
+---
+
+Tree ( levelOrder, printTree )과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+
+---
 
 ```
   
@@ -27,9 +44,9 @@ Tree ( levelOrder, printTree )과 관련해 개발 및 인프라 운용 과정�
 #define QUESIZ 90000                                                        // QUESIZ
 
 typedef struct _NODE{
-        int key;
-        struct _NODE *left;
-        struct _NODE *right;
+int key;
+struct _NODE *left;
+struct _NODE *right;
 } NODE;
 
 //주요기능
@@ -59,144 +76,151 @@ int modAdd(int);                                                //원형큐이�
 
 //////////////////////////        
 void main(){
+
+int num=3, i, input, cnt=0, deep = 0;                // cnt = 노드의 수 
+NODE *tget, *root = NULL;
+
+root = makeRendTree(root,10,&cnt);        //랜덤 트리 생성 (root,노드수)
+
+printf("입력받을 노드의 개수:");
+//scanf("%d",&num);
+printf("%d개의 노드의 수 입력 \n", num);
+for(i=0;i\n");
+//pntTreeNode(root,cnt,deep);
+pntTreeNodeSpce(root,cnt,deep);
+
+//finding
+printf("\n\n");
+tget = findNode(root,200);
+printf("\n",tget->key, tget);
+
+//delete Node 200
+printf("\n\n");
+searchDelNode(root,200,&cnt);                        //트리에서 key 200의 노드를 제거
         
-        int num=3, i, input, cnt=0, deep = 0;                // cnt = 노드의 수 
-        NODE *tget, *root = NULL;
+//tree 만들기
+//pntTreeNode(root,cnt,deep);
+printf("\n");
+pntTreeNodeSpce(root,cnt,deep);
 
-        root = makeRendTree(root,10,&cnt);        //랜덤 트리 생성 (root,노드수)
-
-        printf("입력받을 노드의 개수:");
-        //scanf("%d",&num);
-        printf("%d개의 노드의 수 입력 \n", num);
-        for(i=0;i\n");
-        //pntTreeNode(root,cnt,deep);
-        pntTreeNodeSpce(root,cnt,deep);
-
-        //finding
-        printf("\n\n");
-        tget = findNode(root,200);
-        printf("\n",tget->key, tget);
-        
-        //delete Node 200
-        printf("\n\n");
-        searchDelNode(root,200,&cnt);                        //트리에서 key 200의 노드를 제거
-                
-        //tree 만들기
-        //pntTreeNode(root,cnt,deep);
-        printf("\n");
-        pntTreeNodeSpce(root,cnt,deep);
-
-        //orders
-        printf("\n\n[levelOrder]:");
-        levelorder(root);
-        printf("\n[preorder]:");
-        preorder(root);
-        printf("\n[inorder]:");
-        inorder(root);
-        printf("\n[postorder]:");
-        postorder(root);
-        printf("\n");
+//orders
+printf("\n\n[levelOrder]:");
+levelorder(root);
+printf("\n[preorder]:");
+preorder(root);
+printf("\n[inorder]:");
+inorder(root);
+printf("\n[postorder]:");
+postorder(root);
+printf("\n");
 }
 
 void searchDelNode(NODE *root, int key, int *cnt){        //트리에서 노드를 찾아 삭제
-        NODE *parents;
-        //NODE *child; 
-        parents = findPrntNode(root,key);        //입력한 KEY값에 대한 부모노드의 주소를 리턴한다.
-        //printf("\n",parents->key, parents);
-        //child = selectChild(parents,200);
-        //if(!child) printf("error!");
-        //printf("\n",child->key, child);
-        deleteNode(parents,key,cnt);
-        
+NODE *parents;
+//NODE *child; 
+parents = findPrntNode(root,key);        //입력한 KEY값에 대한 부모노드의 주소를 리턴한다.
+//printf("\n",parents->key, parents);
+//child = selectChild(parents,200);
+//if(!child) printf("error!");
+//printf("\n",child->key, child);
+deleteNode(parents,key,cnt);
+
  }
 
 NODE* selectChild(NODE* parents, int key){
 
-        //만약 왼쪽과 오른쪽 노드의 key가 같다면 왼쪽노드가 우선시 된다.
-        if(parents->left){        // prnt에 왼쪽 자식 노드가 있다면
-                if(key==parents->left->key) return parents->left ;        // 자식노드의 key와 일치하는지 확인
-        }
+//만약 왼쪽과 오른쪽 노드의 key가 같다면 왼쪽노드가 우선시 된다.
+if(parents->left){        // prnt에 왼쪽 자식 노드가 있다면
+        if(key==parents->left->key) return parents->left ;        // 자식노드의 key와 일치하는지 확인
+}
+
+if(parents->right){        // prnt에 오른쪽 자식 노드가 있다면
+        if(key==parents->right->key) return parents->right ;        // 자식노드의 key와 일치하는지 확인
+}
         
-        if(parents->right){        // prnt에 오른쪽 자식 노드가 있다면
-                if(key==parents->right->key) return parents->right ;        // 자식노드의 key와 일치하는지 확인
-        }
-                
-        return NULL;
+return NULL;
 }
 
 void deleteNode(NODE *parents, int key, int *cnt){
 
-        NODE *ptr;                                                                        //자신의 주소
-        ptr = selectChild(parents, key);
-        if(NULL==ptr->left && NULL==ptr->right){        //leaf노드라면
-                if(parents->left == ptr){
-                        parents->left = NULL;
-                }else{
-                        parents->right = NULL;
-                }
-                free(ptr);
-                (*cnt)--;
-                return;
-        }else if(!(parents->left)){        //왼쪽 자식이 NULL이면(오른쪽 자식만 가지고 있다면)
-                ptr->key = ptr->right->key;
-                deleteNode(parents->right,ptr->key,cnt);
-        }else{                                        //두자식 또는 왼쪽 자식노드만 갖고 있다면
-                ptr->key = ptr->left->key;
-                deleteNode(parents->left,ptr->key,cnt);
+NODE *ptr;                                                                        //자신의 주소
+ptr = selectChild(parents, key);
+if(NULL==ptr->left && NULL==ptr->right){        //leaf노드라면
+        if(parents->left == ptr){
+                parents->left = NULL;
+        }else{
+                parents->right = NULL;
         }
+        free(ptr);
+        (*cnt)--;
+        return;
+}else if(!(parents->left)){        //왼쪽 자식이 NULL이면(오른쪽 자식만 가지고 있다면)
+        ptr->key = ptr->right->key;
+        deleteNode(parents->right,ptr->key,cnt);
+}else{                                        //두자식 또는 왼쪽 자식노드만 갖고 있다면
+        ptr->key = ptr->left->key;
+        deleteNode(parents->left,ptr->key,cnt);
+}
 }
 
 NODE* findPrntNode(NODE *parents, int key){
-        //만약 왼쪽과 오른쪽 노드의 key가 같다면 왼쪽노드가 우선시 된다.
-        if(parents->left){        // prnt에 왼쪽 자식 노드가 있다면
-                if(key==parents->left->key) return parents ;        // 자식노드의 key와 일치하는지 확인
-        }
-        if(parents->right){        // prnt에 오른쪽 자식 노드가 있다면
-                if(key==parents->right->key) return parents ;        // 자식노드의 key와 일치하는지 확인
-        }
+//만약 왼쪽과 오른쪽 노드의 key가 같다면 왼쪽노드가 우선시 된다.
+if(parents->left){        // prnt에 왼쪽 자식 노드가 있다면
+        if(key==parents->left->key) return parents ;        // 자식노드의 key와 일치하는지 확인
+}
+if(parents->right){        // prnt에 오른쪽 자식 노드가 있다면
+        if(key==parents->right->key) return parents ;        // 자식노드의 key와 일치하는지 확인
+}
 
-        if(key < parents->key){
-                parents = findPrntNode(parents->left,key);
-        }else{
-                parents = findPrntNode(parents->right,key);
-        }
-        return parents;
+if(key < parents->key){
+        parents = findPrntNode(parents->left,key);
+}else{
+        parents = findPrntNode(parents->right,key);
+}
+return parents;
 }
 
 NODE* findNode(NODE *ptr, int key){
-        
-        NODE *tget;
-        if(key==ptr->key) return ptr;
-        
-        if(key < ptr->key){
-                tget = findNode(ptr->left,key);
-                return tget;
-        }else{
-                tget = findNode(ptr->right,key);
-                return tget;
-        }
+
+NODE *tget;
+if(key==ptr->key) return ptr;
+
+if(key < ptr->key){
+        tget = findNode(ptr->left,key);
+        return tget;
+}else{
+        tget = findNode(ptr->right,key);
+        return tget;
+}
 }
 
 NODE* makeRendTree(NODE* root, int num, int *cnt){
-        
-        int i;
-        
-        srand(time(NULL));
-        for(i=0;ileft = NULL;
-        emptyNd->right = NULL;
-        emptyNd->key = NULL;
-        
-        if(!ptr) return;                                                //출력할 노드가 없다면 종료한다.
-        
-        enqueue(queue,&fr,&rr,ptr);        
-        while(deep>=h){                                                //모든 노드를 출력하면 종료
-                ptr = dequeue(queue,&fr,&rr);
-                if(ptr->key) ++cnt;                                        //cnt, 현재 데이터 노드가 몇개 인지 가리킴
-                ++ant;                                                                //ant, 현재 래밸의 몇번째 노드인인지 가리킴
-                //printf("<%D [%x]>
+
+int i;
+
+srand(time(NULL));
+for(i=0;ileft = NULL;
+emptyNd->right = NULL;
+emptyNd->key = NULL;
+
+if(!ptr) return;                                                //출력할 노드가 없다면 종료한다.
+
+enqueue(queue,&fr,&rr,ptr);        
+while(deep>=h){                                                //모든 노드를 출력하면 종료
+        ptr = dequeue(queue,&fr,&rr);
+        if(ptr->key) ++cnt;                                        //cnt, 현재 데이터 노드가 몇개 인지 가리킴
+        ++ant;                                                                //ant, 현재 래밸의 몇번째 노드인인지 가리킴
+        //printf("<%D [%x]>
 ```
+
+---
+
+---
+
+이상으로 Tree ( levelOrder, printTree )의 기초 개념과 실행 방법에 대한 공유를 마칩니다.
 
 ---
 
 ## 3. 정리하며
 
+이상으로 Tree ( levelOrder, printTree )의 기초 개념과 실행 방법에 대한 공유를 마칩니다.

@@ -1,22 +1,39 @@
 ---
-title: "[ReactNative] code push - Android"
+title: '[ReactNative] code push - Android'
 date: 2021-04-16 00:49:48 +0900
-categories: ["프로그래밍", "기타"]
+categories:
+- 프로그래밍
+- 기타
 tags: []
 ---
-
 > **[핵심 요약]**
-> [ReactNative] code push - Android 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+> [ReactNative] code push - Android의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
 
 ---
 
 ## 1. 개요 및 배경
 
-[ReactNative] code push - Android과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+[ReactNative] code push - Android은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
 
 ---
 
 ## 2. 핵심 설명 및 코드
+
+> [ReactNative] code push - Android의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+
+---
+
+[ReactNative] code push - Android은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+
+---
+
+> [ReactNative] code push - Android 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트입니다.
+
+---
+
+[ReactNative] code push - Android과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유합니다.
+
+---
 
 MS에서 제공하는 리엑트 네이티브 앱 컨텐츠 배포 서비스.
 
@@ -59,7 +76,7 @@ npm install appcenter appcenter-analytics appcenter-crashes --save-exact
     
 ```html
 {
-    "app_secret": "{APP_SECRET_VALUE}"
+"app_secret": "{APP_SECRET_VALUE}"
 }
 ```
     
@@ -134,14 +151,14 @@ A problem occurred configuring project ':app'.
 // 1. Import the plugin class.
 import com.microsoft.codepush.react.CodePush;
 public class MainApplication extends Application implements ReactApplication {
-    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-        ...
+private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+...
 
-        @Override
-        protected String getJSBundleFile() {
-            return CodePush.getJSBundleFile();
-        }
-    };
+@Override
+protected String getJSBundleFile() {
+    return CodePush.getJSBundleFile();
+}
+};
 }
 ```
     
@@ -161,7 +178,7 @@ public class MainApplication extends Application implements ReactApplication {
 import codePush from 'react-native-code-push';
 
 const codePushOptions = {
-	checkFrequency: codePush.CheckFrequency.ON_APP_RESUME
+checkFrequency: codePush.CheckFrequency.ON_APP_RESUME
 }
 export default codePush(codePushOptions)(App)
 ```
@@ -224,5 +241,12 @@ Multi-Deployment Testing
 
 ---
 
+---
+
+이상으로 [ReactNative] code push - Android의 기초 개념과 실행 방법에 대한 공유를 마칩니다.
+
+---
+
 ## 3. 정리하며
 
+이상으로 [ReactNative] code push - Android의 기초 개념과 실행 방법에 대한 공유를 마칩니다.
