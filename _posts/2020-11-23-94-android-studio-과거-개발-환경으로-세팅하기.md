@@ -1,49 +1,22 @@
 ---
-title: Android Studio 과거 개발 환경으로 세팅하기
+title: "Android Studio 과거 개발 환경으로 세팅하기"
 date: 2020-11-23 02:00:45 +0900
-categories:
-- 프로그래밍
-- Android
-tags:
-- android studio
-- gradle
-- 과거 버전 사용
-- 빌드 세팅
+categories: ["프로그래밍", "Android"]
+tags: []
 ---
 
 > **[핵심 요약]**
-> Android Studio 과거 개발 환경으로 세팅하기 작업에 대해 실무에서 검증된 핵심 설정 및 처리 방법을 정돈해둔 노트이에요.
+> Android Studio 과거 개발 환경으로 세팅하기 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트이에요.
 
 ---
 
 ## 1. 개요 및 배경
 
-Android Studio 과거 개발 환경으로 세팅하기에 관해 개발 및 인프라 운용 과정에서 접했던 내용들을 공유해볼게요.
+Android Studio 과거 개발 환경으로 세팅하기과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유해요.
 
 ---
 
-## 2. 핵심 설명 및 설정 가이드
-
----
-
-## 1. 개요 및 배경
-
----
-
-## 2. 핵심 설명 및 설정 가이드
-
->  **TL;DR (핵심 요약)**  
-> Android Studio 과거 개발 환경으로 세팅하기에 대한 상세 설명 및 핵심 가이드이에요.
-
----
-
-## 1. 개요 및 배경
-
-Android Studio 과거 개발 환경으로 세팅하기 가이드 및 실무 적용 설명이에요.
-
----
-
-## 2. 핵심 설명 및 설정 가이드
+## 2. 핵심 설명 및 코드
 
 Android Studio 4.1.1 기준 Minimum SDK를 16미만으로 선택할 수 없었다.
 
@@ -82,7 +55,8 @@ buildToolsVersion의 경우 자동으로 다운받지만 다운이 안되는 경
 ![](/assets/img/posts/img_94_07.png)(수정전) activity_main.xml ![](/assets/img/posts/img_94_08.png)(수정후) activity_main.xml
 
 2) build.gradle 에서 최신 문법을 사용하고 있어 오류가 발생한다.
-
+    
+    
 ```html
 Build file 'C:\Users\yorsi\AndroidStudioProjects\CatchCall\app\build.gradle' line: 33
 
@@ -90,23 +64,28 @@ A problem occurred evaluating project ':app'.
 > Could not find method implementation() for arguments [androidx.appcompat:appcompat:1.1.0] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
 
 ```
+    
 
 아래와 같이 바꿔준다.
-
+    
+    
 ```css
-compile 'com.android.support:support-v4:25.+'
-compile 'com.android.support:appcompat-v7:25.+'
-compile 'com.android.support:design:25.+'
+    compile 'com.android.support:support-v4:25.+'
+    compile 'com.android.support:appcompat-v7:25.+'
+    compile 'com.android.support:design:25.+'
 ```
+    
 
 ![](/assets/img/posts/img_94_09.png)
 
 3) 내 경우에는 @style/Theme.CatchCall를 참조하고 있어서 오류가 발생했다.
-
+    
+    
 ```html
 Execution failed for task ':app:processDebugResources'.
 > com.android.ide.common.process.ProcessException: Failed to execute aapt
 ```
+    
 
 아래 불필요한 파일을 삭제해주고,
 
@@ -125,28 +104,31 @@ androidx 관련 라이브러리를 삭제하고, android.support 라이브러리
 MainActivity.java가 Activity가 아닌 AppCompatActivity를 상속해야 한다면, AndroidManifest.xml에 @style/AppTheme가 필요하므로 아래 2가지 파일이 필요할 수 있다.
 
 color.xml
-
+    
+    
 ```html
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<color name="colorPrimary">#008577</color>
-<color name="colorPrimaryDark">#00574B</color>
-<color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
 </resources>
 ```
+    
 
 style.xml
-
+    
+    
 ```html
 <resources>
 
-<!-- Base application theme. -->
-<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-</style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
 </resources>
 ```
@@ -155,17 +137,4 @@ style.xml
 
 ## 3. 정리하며
 
-- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
-- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
-
----
-
-## 3. 정리하며
-
-관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
-
----
-
-## 3. 정리하며
-
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있으시다면 언제든 댓글로 편하게 말씀해주세요.
+관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 말씀해주세요.

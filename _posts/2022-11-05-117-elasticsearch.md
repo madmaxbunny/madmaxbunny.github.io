@@ -1,74 +1,55 @@
 ---
-title: ElasticSearch
+title: "ElasticSearch"
 date: 2022-11-05 23:04:36 +0900
-categories:
-- 프로그래밍
-- 기타
-tags:
-- elastic
-- elasticsearch
-- elk
+categories: ["프로그래밍", "기타"]
+tags: []
 ---
 
 > **[핵심 요약]**
-> ElasticSearch 작업에 대해 실무에서 검증된 핵심 설정 및 처리 방법을 정돈해둔 노트이에요.
+> ElasticSearch 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트이에요.
 
 ---
 
 ## 1. 개요 및 배경
 
-ElasticSearch에 관해 개발 및 인프라 운용 과정에서 접했던 내용들을 공유해볼게요.
+ElasticSearch과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유해요.
 
 ---
 
-## 2. 핵심 설명 및 설정 가이드
-
----
-
-## 1. 개요 및 배경
-
----
-
-## 2. 핵심 설명 및 설정 가이드
-
->  **TL;DR (핵심 요약)**  
-> ElasticSearch에 대한 상세 설명 및 핵심 가이드이에요.
-
----
-
-## 1. 개요 및 배경
-
-ElasticSearch 가이드 및 실무 적용 설명이에요.
-
----
-
-## 2. 핵심 설명 및 설정 가이드
+## 2. 핵심 설명 및 코드
 
 ### **1\. 설치**
-
+    
+    
 ```bash
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.0
 docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.0
 ```
+    
 
 * * *
 
 #### **버전확인**
-
+    
+    
 ```bash
 GET /
 ```
+    
 
 ### 
 
 ### **2\. CRUD**
-
+    
+    
 ```bash
 http://<호스트>:<포트>/<인덱스>/_doc/<도큐먼트 id>
 ```
+    
 
 #### **1) 상태 확인**
-
+    
+    
 ```bash
 #index 조회
 GET /_cat/indices?v 
@@ -76,19 +57,23 @@ GET /_cat/indices?v
 #상태확인
 GET /_cat/health?v
 ```
+    
 
 #### **2) 삽입**
-
+    
+    
 ```bash
 PUT /movie/_doc/1
 
 {
-"msg" : "Hello Elasticsearch!"
+    "msg" : "Hello Elasticsearch!"
 }
 ```
+    
 
 #### **3) 조회**
-
+    
+    
 ```bash
 # 단일검색
 GET /movie/_doc/1
@@ -100,9 +85,11 @@ GET /movie/_search
 GET /movie/_search?q=hello
 GET /movie/_search?q=hello OR hi
 ```
+    
 
 #### **3) 삭제**
-
+    
+    
 ```bash
 #index 삭제
 DELETE /movie
@@ -113,125 +100,132 @@ DELETE /movie/_doc/4
 #doc 삭제(쿼리). POST /INDEX/_delete_by_query
 DELETE /movie/_delete_by_query
 {
-"query" : {
-	"match" : {
-		"msg" : "hello"
+	"query" : {
+		"match" : {
+			"msg" : "hello"
+		}
 	}
 }
-}
 ```
+    
 
 * * *
 
 #### 3\. 집계 함수
 
 #### 1) group by
-
+    
+    
 ```javascript
 GET gw-heartbeat/_search
 {
   "size": 0,
   "query": {
-"bool": {
-  "filter": [
-    {
-      "range": {
-        "@timestamp": {
-          "gt": "2023-01-19T00:00:00.000Z",
-          "lt": "2023-01-20T00:00:00.000Z"
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "@timestamp": {
+              "gt": "2023-01-19T00:00:00.000Z",
+              "lt": "2023-01-20T00:00:00.000Z"
+            }
+          }
         }
-      }
+      ]
     }
-  ]
-}
   },
   "aggs": {
-"count": {
-  "terms": {
-    "field": "url.domain",
-    "size" : 1000
-
-  }
-}
+    "count": {
+      "terms": {
+        "field": "url.domain",
+        "size" : 1000
+        
+      }
+    }
   }
 }
 ```
+    
 
 #### 2) group by (필드 2개 이상)
-
+    
+    
 ```javascript
 GET gw-heartbeat/_search
 {
   "size": 0,
   "query": {
-"bool": {
-  "filter": [
-    {
-      "range": {
-        "@timestamp": {
-          "gt": "2023-01-19T00:00:00.000Z",
-          "lt": "2023-01-20T00:00:00.000Z"
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "@timestamp": {
+              "gt": "2023-01-19T00:00:00.000Z",
+              "lt": "2023-01-20T00:00:00.000Z"
+            }
+          }
         }
-      }
+      ]
     }
-  ]
-}
   },
   "aggs": {
-"myName": {
-  "multi_terms" : {
-    "terms" : [
-      {"field": "url.domain"},
-      {"field": "monitor.ip"}
-    ],
-    "size" : 1000
-  }
-}
+    "myName": {
+      "multi_terms" : {
+        "terms" : [
+          {"field": "url.domain"},
+          {"field": "monitor.ip"}
+        ],
+        "size" : 1000
+      }
+    }
   }
 }
 ```
+    
 
 4\. 예제
 
 AND 조건, Timezone
-
+    
+    
 ```javascript
 {
   "track_total_hits": true,
   "query": {
-"bool": {
-  "filter": [
-    {
-      "match": {
-        "tags": "GRHQ"
-      }
-    },
-    {
-      "match": {
-        "tags": "MO"
-      }
-    },
-    {
-      "range": {
-        "@timestamp": {
-          "gte": "2023-05-01T00:00:00.000",
-          "lte": "2023-05-25T00:00:00.000",
-          "time_zone": "Asia/Seoul"
+    "bool": {
+      "filter": [
+        {
+          "match": {
+            "tags": "GRHQ"
+          }
+        },
+        {
+          "match": {
+            "tags": "MO"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2023-05-01T00:00:00.000",
+              "lte": "2023-05-25T00:00:00.000",
+              "time_zone": "Asia/Seoul"
+            }
+          }
         }
-      }
+      ]
     }
-  ]
-}
   },
   "aggs": {
-"avg": {
-  "avg": {
-    "field": "time_taken"
-  }
-}
+    "avg": {
+      "avg": {
+        "field": "time_taken"
+      }
+    }
   }
 }
 ```
+    
 
   * 전체 범위 검색을 하려면 "track_total_hits": true 작성해야 함
   * 불필요한 데이터가 많이 보일 때는 ?size=0 적용
@@ -240,43 +234,45 @@ AND 조건, Timezone
   * avg 추출 했더니, 결과에 count도 함께 나온다.
 
 OR 조건
-
+    
+    
 ```javascript
 GET gw-http-accesslog/_count
 {
   "query": {
-"bool": {
-  "filter": [
-    {
-      "bool": {
-        "should": [
-          {
-            "match": {
-              "tags": "GRHQ"
-            }
-          },
-          {
-            "match": {
-              "tags": "MO"
+    "bool": {
+      "filter": [
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "tags": "GRHQ"
+                }
+              },
+              {
+                "match": {
+                  "tags": "MO"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2023-05-24T20:00:00.000",
+              "lte": "2023-05-24T20:00:00.001",
+              "time_zone": "Asia/Seoul"
             }
           }
-        ]
-      }
-    },
-    {
-      "range": {
-        "@timestamp": {
-          "gte": "2023-05-24T20:00:00.000",
-          "lte": "2023-05-24T20:00:00.001",
-          "time_zone": "Asia/Seoul"
         }
-      }
+      ]
     }
-  ]
-}
   }
 }
 ```
+    
 
 <https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/>
 
@@ -290,17 +286,4 @@ GET gw-http-accesslog/_count
 
 ## 3. 정리하며
 
-- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
-- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
-
----
-
-## 3. 정리하며
-
-관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
-
----
-
-## 3. 정리하며
-
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있으시다면 언제든 댓글로 편하게 말씀해주세요.
+관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 말씀해주세요.

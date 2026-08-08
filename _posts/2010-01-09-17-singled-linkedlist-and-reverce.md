@@ -1,48 +1,22 @@
 ---
-title: Singled LinkedList And Reverce
+title: "Singled LinkedList And Reverce"
 date: 2010-01-09 14:32:36 +0900
-categories:
-- 프로그래밍
-- Data Structure
-tags:
-- linkedlist
-- singled
-- 링크드리스트
+categories: ["프로그래밍", "Data Structure"]
+tags: []
 ---
 
 > **[핵심 요약]**
-> Singled LinkedList And Reverce 작업에 대해 실무에서 검증된 핵심 설정 및 처리 방법을 정돈해둔 노트이에요.
+> Singled LinkedList And Reverce 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트이에요.
 
 ---
 
 ## 1. 개요 및 배경
 
-Singled LinkedList And Reverce에 관해 개발 및 인프라 운용 과정에서 접했던 내용들을 공유해볼게요.
+Singled LinkedList And Reverce과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유해요.
 
 ---
 
-## 2. 핵심 설명 및 설정 가이드
-
----
-
-## 1. 개요 및 배경
-
----
-
-## 2. 핵심 설명 및 설정 가이드
-
->  **TL;DR (핵심 요약)**  
-> Singled LinkedList And Reverce에 대한 상세 설명 및 핵심 가이드이에요.
-
----
-
-## 1. 개요 및 배경
-
-Singled LinkedList And Reverce 가이드 및 실무 적용 설명이에요.
-
----
-
-## 2. 핵심 설명 및 설정 가이드
+## 2. 핵심 설명 및 코드
 
 #include <stdio.h>  
 #include <stdlib.h>
@@ -52,6 +26,7 @@ int data; // 데이터
 struct _NODE *next; // 다음노드의 주소  
 }NODE;
 
+  
 NODE* createNode(); //해드노드 만들기  
 NODE* insertNode(NODE*,int); //마지막노드뒤에 새노드 삽입, 새노드 주소 리턴  
 NODE* reversNode(NODE*); //반전(reverse)   
@@ -62,9 +37,9 @@ void endList(NODE*); //리스트 종료 모든 노드 삭제
 void main(){
 
 NODE *hd, *pt; // hd = 첫노드주소 pt = 마지막노드 주소  
-
+  
 pt = hd = createNode();  
-
+  
 pt = insertNode(pt,2);  
 pt = insertNode(pt,0);  
 pt = insertNode(pt,0);  
@@ -84,43 +59,44 @@ printf("\n\n<revers>\n");
 hd = reversNode(hd);  
 prntNode(hd);  
 printf("\n");  
-
+  
 endList(hd); //만들었던 모든 노드 삭제(free)  
 }
 
+  
 NODE* createNode(){  
-
+  
 NODE *head = (NODE*)malloc(sizeof(NODE)); //리스트를 생성하기 위해 head노드 생성  
 head ->data = NULL;  
 head ->next = NULL;  
-
+  
 return head;  
 }
 
 NODE* insertNode(NODE* pt,int data){  
-
+  
 NODE *newNode = (NODE*)malloc(sizeof(NODE));  
 pt->next = newNode; // 새노드를 마지막 노드 뒤에 삽입한다.  
 newNode->next = NULL;  
 newNode->data = data;  
-
+  
 return newNode; // 생선한 노드의 주소값 리턴  
 }  
 void deleteNode(NODE* hd, int cnt){  
-
+  
 int i;  
 NODE *delPt, *temp;  
-
+  
 for(i=1;i<cnt;i++){ // cnt만큼 노드순회후 삭제  
 if(NULL==hd->next){// (예외 처리)cnt만큼 노드순회후 더 이상 노드가 없을 경우  
-
+  
 printf("Not find node%d!\n",cnt);  
 return;  
 }  
 temp = hd;   
 hd = hd->next;  
 }  
-
+  
 if(NULL==hd->next){  
 //for문으로 cnt-1만큼 순회후 그 노드의 next를 삭제하는데  
 //cnt-1과 현재 생성된 노드의 수가 일치하게 되면 next값이 null인데도 불구하고   
@@ -131,7 +107,7 @@ return;
 }   
 delPt = hd->next;  
 hd->next = hd->next->next;  
-
+  
 free(delPt);  
 }
 
@@ -145,7 +121,7 @@ hd = hd->next;
 }
 
 void endList(NODE* hd){  
-
+  
 if(NULL==hd->next){ //마지막 남은 해드노드 삭제 free();  
 free(hd);  
 return;  
@@ -153,28 +129,28 @@ return;
 int cnt=0;  
 NODE *pt;  
 while(NULL != hd->next){ //노드의 next가 null이 될때까지 순회   
-
+  
 pt = hd;  
 hd = hd->next; //일단 hd를 옴겨 놓고   
 free(pt); //노드 삭제  
 }  
 }  
 NODE* reversNode(NODE* hd){  
-
+  
 NODE *pt, *pt2; //리버스하기 위한 두개의 포인터노드 지정
 
 if(NULL==hd->next) return hd; // 예외 처리(해드노드밖에 존재하지 않을경우)  
-
+  
 pt2 = hd->next->next;  
 hd->next->next = NULL;  
-
+  
 while(pt2!=NULL){  
 pt = hd->next;  
 hd->next = pt2;  
 pt2 = pt2 ->next;  
 hd->next->next = pt;  
 }  
-
+  
 return hd;  
 }
 
@@ -182,17 +158,4 @@ return hd;
 
 ## 3. 정리하며
 
-- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
-- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
-
----
-
-## 3. 정리하며
-
-관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
-
----
-
-## 3. 정리하며
-
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있으시다면 언제든 댓글로 편하게 말씀해주세요.
+관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 말씀해주세요.

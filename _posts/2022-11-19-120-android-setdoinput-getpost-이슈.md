@@ -1,52 +1,26 @@
 ---
-title: Android setDoInput GET/POST 이슈
+title: "Android setDoInput GET/POST 이슈"
 date: 2022-11-19 16:09:32 +0900
-categories:
-- 프로그래밍
-- Android
-tags:
-- android
-- get
-- post
-- setdoinput
+categories: ["프로그래밍", "Android"]
+tags: []
 ---
 
 > **[핵심 요약]**
-> Android setDoInput GET/POST 이슈 작업에 대해 실무에서 검증된 핵심 설정 및 처리 방법을 정돈해둔 노트이에요.
+> Android setDoInput GET/POST 이슈 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트이에요.
 
 ---
 
 ## 1. 개요 및 배경
 
-Android setDoInput GET/POST 이슈에 관해 개발 및 인프라 운용 과정에서 접했던 내용들을 공유해볼게요.
+Android setDoInput GET/POST 이슈과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유해요.
 
 ---
 
-## 2. 핵심 설명 및 설정 가이드
-
----
-
-## 1. 개요 및 배경
-
----
-
-## 2. 핵심 설명 및 설정 가이드
-
->  **TL;DR (핵심 요약)**  
-> Android setDoInput GET/POST 이슈에 대한 상세 설명 및 핵심 가이드이에요.
-
----
-
-## 1. 개요 및 배경
-
-Android setDoInput GET/POST 이슈 가이드 및 실무 적용 설명이에요.
-
----
-
-## 2. 핵심 설명 및 설정 가이드
+## 2. 핵심 설명 및 코드
 
 **아래 코드를 실행하면 GET과 POST 중 어떤 방식으로 발송이 될까?**
-
+    
+    
 ```java
 URL url = new URL(CALL_SEVER_URL);
 conn = (HttpURLConnection) url.openConnection();
@@ -61,6 +35,7 @@ conn.setDoOutput(true); // InputStream으로 서버로부터 응답을 받겠다
 
 int resCode = conn.getResponseCode();
 ```
+    
 
 ### **테스트 결과**
 
@@ -69,7 +44,8 @@ int resCode = conn.getResponseCode();
 2) Android 자바에서는 POST 방식으로 발송한다. 
 
 그래서 Android에서 **GET 방식으로 전송하기 위해서는 반드시 setDoInput(false)로 사용** 해야한다.
-
+    
+    
 ```java
 conn.setDoInput(false); // OutputStream으로 POST 데이터를 넘겨주겠다는 옵션
 ```
@@ -78,17 +54,4 @@ conn.setDoInput(false); // OutputStream으로 POST 데이터를 넘겨주겠다�
 
 ## 3. 정리하며
 
-- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
-- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
-
----
-
-## 3. 정리하며
-
-관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
-
----
-
-## 3. 정리하며
-
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있으시다면 언제든 댓글로 편하게 말씀해주세요.
+관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 말씀해주세요.

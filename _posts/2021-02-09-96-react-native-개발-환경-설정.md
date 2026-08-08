@@ -1,52 +1,30 @@
 ---
-title: React-native 개발 환경 설정
+title: "React-native 개발 환경 설정"
 date: 2021-02-09 23:51:53 +0900
-categories:
-- 프로그래밍
-tags:
-- react-native
+categories: ["프로그래밍"]
+tags: []
 ---
 
 > **[핵심 요약]**
-> React-native 개발 환경 설정 작업에 대해 실무에서 검증된 핵심 설정 및 처리 방법을 정돈해둔 노트이에요.
+> React-native 개발 환경 설정 작업 시 검증했던 핵심 내용과 설정 가이드를 정리해둔 노트이에요.
 
 ---
 
 ## 1. 개요 및 배경
 
-React-native 개발 환경 설정에 관해 개발 및 인프라 운용 과정에서 접했던 내용들을 공유해볼게요.
+React-native 개발 환경 설정과 관련해 개발 및 인프라 운용 과정에서 알게 된 점들을 공유해요.
 
 ---
 
-## 2. 핵심 설명 및 설정 가이드
-
----
-
-## 1. 개요 및 배경
-
----
-
-## 2. 핵심 설명 및 설정 가이드
-
->  **TL;DR (핵심 요약)**  
-> React-native 개발 환경 설정에 대한 상세 설명 및 핵심 가이드이에요.
-
----
-
-## 1. 개요 및 배경
-
-React-native 개발 환경 설정 가이드 및 실무 적용 설명이에요.
-
----
-
-## 2. 핵심 설명 및 설정 가이드
+## 2. 핵심 설명 및 코드
 
 ## **1\. Mac**
 
 ### 1\. 개발 환경 설정
 
 <https://gist.github.com/falsy/8aa42ae311a9adb50e2ca7d8702c9af1>
-
+    
+    
 ```java
 NVM 설치
 $ sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
@@ -77,12 +55,14 @@ Java(TM) SE Runtime Environment (build 1.8.0_221-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)
 
 ```
+    
 
   * Xcode > Preperences > Locations > Command Line Tools : Xcode 11.3.1 선택
   * AndroidStudio >
 
 ![](/assets/img/posts/img_96_01.png)
-
+    
+    
 ```html
 $ vi ./.zshrc
 export ANDROID_HOME=/Users/khlim/Library/Android/sdk
@@ -96,9 +76,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Hom
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 ```
+    
 
 ### 2\. 프로젝트 생성
-
+    
+    
 ```java
 $ react-native init --version 0.61.5 프로젝트명
 $ react-native -version  
@@ -106,9 +88,11 @@ react-native-cli: 2.0.1
 react-native: 0.61.5
 
 ```
+    
 
 ### 3\. 실행
-
+    
+    
 ```html
 $ cd 프로젝트명
 $ cd npm start
@@ -118,34 +102,41 @@ $ react-native run-android
 $ react-native run-ios
 
 ```
+    
 
 ### 4\. 오류 
 
 #### case 1.
-
+    
+    
 ```java
 error Failed to install the app. Make sure you have the Android development environment set up: https://facebook.github.io/react-native/docs/getting-started.html#android-development-environment. Run CLI with --verbose flag for more details.
 Error: Command failed: ./gradlew app:installDebug -PreactNativeDevServerPort=8081
 ```
+    
 
 해결 방법) cd android && chmod +x gradlew
 
 <https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop>
 
 #### case 2.
-
+    
+    
 ```java
 xecution failed for task ':app:compileDebugJavaWithJavac'.
 > Could not find tools.jar.
 ```
+    
 
 해결 방법) JAVA가 설치되어 있더라도 JAVA_HOME을 환경 변수로 등록해야함
 
 #### case 3.
-
+    
+    
 ```java
 안드로이드 애뮬레이터 실행 시 오류 발생
 ```
+    
 
 해결 방법) Android 버전을 29 -> 23으로 낮추니깐 잘됨. 28이상부터 이슈 있음
 
@@ -156,7 +147,8 @@ case 4.
 Node LTE 버전 14.16.1로 업데이트
 
 > react-native run-ios 실행 시 아래 오류 발생
-
+    
+    
 ```java
 error Could not find "Podfile.lock" at /Users/khlim/Dev/react-native/secondApp/ios/Podfile.lock. Did you run "pod install" in iOS directory?
 info Found Xcode project "secondApp.xcodeproj"
@@ -164,15 +156,17 @@ info Launching iPhone 12 (iOS 14.4)
 info Building (using "xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F")
 error Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening secondApp.xcodeproj.
 Command line invocation:
-/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project secondApp.xcodeproj -configuration Debug -scheme secondApp -destination id=32E15FB9-85B6-469A-A374-8925A968C23F
 ```
+    
 
 iOS 폴더에서 아래 명령어 실행
 
 > cd ios   
 > pod repo update  
 > pod install
-
+    
+    
 ```java
 Updating spec repo `trunk`
 
@@ -188,6 +182,7 @@ Fetching podspec for `RCT-Folly` from `../node_modules/react-native/third-party-
 Fetching podspec for `glog` from `../node_modules/react-native/third-party-podspecs/glog.podspec`
 [!] `OpenSSL-Universal` requires CocoaPods version `>= 1.9`, which is not satisfied by your current version, `1.8.4`.
 ```
+    
 
 > sudo gem install cocoapods  
 > pod repo update  
@@ -204,14 +199,17 @@ case 5.
 case 6.
 
 code 명령어 사용하기 위해 ~/.zshrc 파일에 vscode path를 추가해줘야 한다. 띄어쓰기 있어서 ""으로 감싸줘야 함
-
+    
+    
 ```html
 export VSCODE_HOME="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH=$PATH:$VSCODE_HOME
 ```
+    
 
 case 7.
-
+    
+    
 ```html
 npm start
 
@@ -220,18 +218,18 @@ npm start
 
 /Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/node_modules/@react-native-community/cli/build/index.js:178
   const cmd = _commander().default.command(command.name).action(async function handleAction(...args) {
-                                                            ^^^^^
+                                                                ^^^^^
 SyntaxError: missing ) after argument list
-at createScript (vm.js:56:10)
-at Object.runInThisContext (vm.js:97:10)
-at Module._compile (module.js:542:28)
-at Object.Module._extensions..js (module.js:579:10)
-at Module.load (module.js:487:32)
-at tryModuleLoad (module.js:446:12)
-at Function.Module._load (module.js:438:3)
-at Module.require (module.js:497:17)
-at require (internal/module.js:20:19)
-at Object.<anonymous> (/Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/cli.js:13:11)
+    at createScript (vm.js:56:10)
+    at Object.runInThisContext (vm.js:97:10)
+    at Module._compile (module.js:542:28)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/autoever/Dev/react-native/codePushApp/node_modules/react-native/cli.js:13:11)
 
 npm ERR! Darwin 20.2.0
 npm ERR! argv "/Users/autoever/.nvm/versions/node/v6.10.1/bin/node" "/Users/autoever/.nvm/versions/node/v6.10.1/bin/npm" "start"
@@ -256,20 +254,25 @@ npm ERR! There is likely additional logging output above.
 npm ERR! Please include the following file with any support request:
 npm ERR!     /Users/autoever/Dev/react-native/codePushApp/npm-debug.log
 ```
+    
 
 신규 노드 설치 후 nvm use 명령어를 사용했어도, vscode 터미널 상에는 다시 nvm use 를 다시 사용해야 한다.
 
 번거롭다면 아래처럼 default 설정이 가능하다.
-
+    
+    
 ```html
 nvm alias default 14.16.1
 ```
+    
 
 case 8.
-
+    
+    
 ```javascript
 Make sure you're either running Metro (run 'react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release.
 ```
+    
 
 해결법 1. 노드 버전을 확인한다. 
 
@@ -278,17 +281,20 @@ Make sure you're either running Metro (run 'react-native start') or that your bu
 1) [패키지명]/android/app/src/main/assets 폴더가 있는지 확인하고 없으면 생성  
 2) [패키지명]/android 폴더에서 ./gradlew clean 실행  
 3) [패키지명] 폴더에서 아래 명령어 실행
-
+    
+    
 ```javascript
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 ```
+    
 
 4) react-native run-android
 
 ## **2\. Windows (10)**
 
 ### 1\. 개발 환경 설정
-
+    
+    
 ```html
 NVM 설치
 1. https://github.com/coreybutler/nvm-windows/releases
@@ -328,6 +334,7 @@ OpenJDK Runtime Environment (build 1.8.0_265-b01)
 OpenJDK 64-Bit Server VM (build 25.265-b01, mixed mode)
 
 ```
+    
 
   * AndroidStudio >
 
@@ -336,7 +343,8 @@ OpenJDK 64-Bit Server VM (build 25.265-b01, mixed mode)
 필자는 AMD Ryzen 5 3600 프로세서라 [Android Emulator Hypervisor Driver for AMD Processors(Installer)를 설치했다. 인터넷에 해당 옵션 사용 위해서는 [Windows 기능]에 Hyper-V, Windows 하이퍼바이저 플랫폼을 설치해야한다는 글이 있던데.. 필자는 없이 설치 가능했다. 
 
 ### 2\. 프로젝트 생성
-
+    
+    
 ```html
 $ react-native init 프로젝트명
 $ react-native -version  
@@ -344,9 +352,11 @@ react-native-cli: 2.0.1
 react-native: 0.63.5
 
 ```
+    
 
 ### 3\. 실행
-
+    
+    
 ```html
 $ cd 프로젝트명
 $ cd npm start
@@ -355,6 +365,7 @@ $ cd npm start
 $ react-native run-android
 
 ```
+    
 
   * 두번째 설치라 윈도우 환경에서는 버전을 명시하지 않고 설치했다. 문제 없이 동작한다.
   * VM 에서는 안드로이드 애뮬레이터를 실행할 수 없었다.
@@ -363,7 +374,8 @@ $ react-native run-android
 ### 2\. 오류
 
 #### case 1. PowerShell 또는 VS Code Terminal에서 명령어 실행 시 아래와 같은 매시지 발생.
-
+    
+    
 ```html
 react-native : 이 시스템에서 스크립트를 실행할 수 없으므로 C:\Users\-\AppData\Roaming\npm\react-native.ps1 파일을
 로드할 수 없습니다. 자세한 내용은 about_Execution_Policies(https://go.microsoft.com/fwlink/?LinkID=135170)를 참조하십시
@@ -371,9 +383,10 @@ react-native : 이 시스템에서 스크립트를 실행할 수 없으므로 C:
 위치 줄:1 문자:1
 + react-native
 + ~~~~~~~~~~~~
-+ CategoryInfo          : 보안 오류: (:) [], PSSecurityException
-+ FullyQualifiedErrorId : UnauthorizedAccess
+    + CategoryInfo          : 보안 오류: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
 ```
+    
 
 해결 방법)
 
@@ -388,13 +401,15 @@ react-native : 이 시스템에서 스크립트를 실행할 수 없으므로 C:
   * RemoteSigned : 신뢰된 배포자에 의해 서명된 원격 컴퓨터의 스크립트 파일 실행 가능
 
 ### case 2.
-
+    
+    
 ```html
 BUILD FAILED in 16s
 
 error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup. Run CLI with --verbose flag for more details.
 Error: Command failed: gradlew.bat app:installDebug -PreactNativeDevServerPort=8081
 ```
+    
 
 해결 방법) 
 
@@ -407,7 +422,8 @@ PATH 추가 : %ANDROID_HOME%\tools
   * VirtualBox의 경우 Android 애뮬레이터가 동작하지 않아 실단말을 연결하여 테스트하였다.
 
 ### 1\. 개발 환경 설정
-
+    
+    
 ```html
 NVM 설치
 > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -449,7 +465,9 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools (adb 사용위해 추가함)
 
 ```
-
+    
+    
+    
 ```html
 > vi ./.bash_profile
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -462,6 +480,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
+    
 
 ### 
 
@@ -470,7 +489,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 ### 2\. 오류
 
 case 1. 
-
+    
+    
 ```html
 BUILD FAILED in ~
 
@@ -479,11 +499,13 @@ using Android SDK Manager: "$ANDROID_HOME/tools/bin/sdkmanager --licenses".
 Run CLI with --verbose flag for more details.
 Error: Command failed: ./gradlew app:installDebug -PreactNativeDevServerPort=8081
 ```
+    
 
 해결 방법) Android SDK > SDK Tools 에서 Google Play Licensing Library 설치
 
 case 2.
-
+    
+    
 ```html
 BUILD FAILED in ~
 
@@ -493,6 +515,7 @@ Error: Command failed: ./gradlew app:installDebug -PreactNativeDevServerPort=808
 Note: /home/khlim/dev/react-native/firstApp/android/app/src/debug/java/com/firstapp/ReactNativeFlipper.
 java uses or overrides a deprecated API.​
 ```
+    
 
 디바이스 찾지 못함.
 
@@ -508,17 +531,4 @@ java uses or overrides a deprecated API.​
 
 ## 3. 정리하며
 
-- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
-- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
-
----
-
-## 3. 정리하며
-
-관련 내용에 대해 궁금한 점이 있으시다면 언제든 편하게 질문해주세요.
-
----
-
-## 3. 정리하며
-
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있으시다면 언제든 댓글로 편하게 말씀해주세요.
+관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 말씀해주세요.
