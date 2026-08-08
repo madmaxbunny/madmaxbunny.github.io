@@ -7,25 +7,25 @@ lang: ko
 
 timezone: Asia/Seoul
 
-title: maxdevbunny
+title: madmaxbunny
 
 tagline: DEV LION 개발 노트
 
 description: >-
   DEV LION의 개발 및 인프라 지식 노트를 모아놓은 기술 블로그입니다.
 
-url: "https://maxdevbunny.github.io"
+url: "https://madmaxbunny.github.io"
 
 github:
-  username: maxdevbunny
+  username: madmaxbunny
 
 twitter:
-  username: maxdevbunny
+  username: madmaxbunny
 
 social:
-  name: maxdevbunny
+  name: madmaxbunny
   links:
-    - https://github.com/maxdevbunny
+    - https://github.com/madmaxbunny
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
