@@ -5,6 +5,19 @@ categories: ["프로그래밍", "DB"]
 tags: []
 ---
 
+> 💡 **TL;DR (핵심 요약)**  
+> [DB] Oracle Database Express Edition 11g 시작하기에 대한 상세 설명 및 핵심 가이드입니다.
+
+---
+
+## 1. 개요 및 배경
+
+[DB] Oracle Database Express Edition 11g 시작하기 가이드 및 실무 적용 설명입니다.
+
+---
+
+## 2. 핵심 설정 및 실행 가이드
+
 **1\. Oracle Database Express Edition 11g 설치**  
 \- [_http://www.oracle.com/technetwork/indexes/downloads/index.html_](http://www.oracle.com/technetwork/indexes/downloads/index.html) 에서 다운 가능하다.  
 \- Express Edition는 무료버젼이며, 한 명의 uesr만 사용 가능하다.  
@@ -100,3 +113,10 @@ PL/SQL 편집기에서 완성 자동 팝업 사용 체크 해제
 \- 자동 완성 기능을 사용할 때, 타이핑 중인 단어가 완성되는 것이 아닌, 단어가 추가만 될 때가 있다.   
 필자는 이것 때문에 자동 완성 기능을 지우려 했으나, 어찌된 일인지 설치 후 하루가 지나니 이러한 현상이 사라졌다.   
 (프로그램 버그인듯..)
+
+---
+
+## 3. 요약 및 참고사항
+
+- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
+- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.

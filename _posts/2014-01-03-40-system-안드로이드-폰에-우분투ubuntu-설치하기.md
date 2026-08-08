@@ -5,6 +5,19 @@ categories: ["프로그래밍", "System"]
 tags: []
 ---
 
+> 💡 **TL;DR (핵심 요약)**  
+> [System] 안드로이드 폰에 우분투(Ubuntu) 설치하기에 대한 상세 설명 및 핵심 가이드입니다.
+
+---
+
+## 1. 개요 및 배경
+
+[System] 안드로이드 폰에 우분투(Ubuntu) 설치하기 가이드 및 실무 적용 설명입니다.
+
+---
+
+## 2. 핵심 설정 및 실행 가이드
+
 타겟단말 : 겔럭시 S  
 우분투 버전 : 12.04  
   
@@ -93,3 +106,10 @@ $apt-get install vim
 참조 : [_http://www.zdnet.co.kr/column/column_view.asp?artice_id=20120518070549_](http://www.zdnet.co.kr/column/column_view.asp?artice_id=20120518070549)  
 참조 : [_http://blog.naver.com/nannomad?Redirect=Log &logNo=130159731508_](http://blog.naver.com/nannomad?Redirect=Log&logNo=130159731508)  
 참조 : [_http://rayzie.tistory.com/48#recentComments_](http://rayzie.tistory.com/48#recentComments)
+
+---
+
+## 3. 요약 및 참고사항
+
+- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
+- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.

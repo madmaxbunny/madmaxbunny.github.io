@@ -5,6 +5,19 @@ categories: ["프로그래밍", "기타"]
 tags: ["code push", "react-native"]
 ---
 
+> 💡 **TL;DR (핵심 요약)**  
+> [ReactNative] code push - Android에 대한 상세 설명 및 핵심 가이드입니다.
+
+---
+
+## 1. 개요 및 배경
+
+[ReactNative] code push - Android 가이드 및 실무 적용 설명입니다.
+
+---
+
+## 2. 핵심 설정 및 실행 가이드
+
 MS에서 제공하는 리엑트 네이티브 앱 컨텐츠 배포 서비스.
 
 버전이 자주 바뀌기 때문에 인터넷 블로그 마다 내용이 조금씩 다르다. 어설프게 따라하다 더 고생한다. 꼭 공식 홈페이지 튜토리얼부터 확인 할 것!
@@ -208,3 +221,10 @@ Multi-Deployment Testing
 [docs.microsoft.com/en-us/appcenter/distribution/codepush/rn-deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/rn-deployment)
 
 [ Using the React Native SDK with CodePush – Distribution - Visual Studio App Center Distribution with React Native SDK and CodePush docs.microsoft.com ](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/rn-deployment)
+
+---
+
+## 3. 요약 및 참고사항
+
+- 본 포스트는 실무 개발 및 인프라 운용 중 검증된 노하우를 바탕으로 정리되었습니다.
+- 추가 문의나 개선사항은 포스트 하단 댓글 또는 GitHub 이슈로 전달해 주세요.
