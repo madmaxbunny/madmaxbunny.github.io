@@ -531,4 +531,3 @@ java uses or overrides a deprecated API.​
 
 ## 3. 정리하며
 
-관련해서 궁금하신 점이나 나눠보고 싶은 의견이 있다면 댓글로 편하게 남겨주시기 바랍니다.
