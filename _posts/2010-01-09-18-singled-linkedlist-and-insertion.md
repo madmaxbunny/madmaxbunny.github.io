@@ -7,23 +7,23 @@ categories:
 tags: []
 ---
 > **[핵심 요약]**
-> Singled LinkedList And Insertion의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+> 단일 연결 리스트의 중간에 신규 노드를 정확한 위치에 삽입(Insertion)하는 C언어 구현 코드입니다.
 
 ---
 
 ## 1. 개요 및 배경
 
-Singled LinkedList And Insertion은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+Singled LinkedList And Insertion은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 
 
 ---
 
 ## 2. 핵심 설명 및 코드
 
-> Singled LinkedList And Insertion의 기본 개념과 실무 적용 명령어를 대학교 1학년 눈높이에 맞춰 정리한 기술 노트입니다.
+> Singled LinkedList And Insertion의 기본 개념과 실무 적용 명령어를 
 
 ---
 
-Singled LinkedList And Insertion은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 초보자 분들도 쉽게 이해할 수 있도록 기본 용어 개념과 배경 지식을 먼저 설명하고, 실제 적용 코드와 실행법을 차근차근 다룹니다.
+Singled LinkedList And Insertion은 컴퓨터 프로그래밍 및 시스템 운용 시 자주 접하게 되는 핵심 기술 요소입니다. 
 
 ---
 
